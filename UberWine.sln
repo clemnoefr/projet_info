@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UberAdmin", "UberWine\UberAdmin.csproj", "{AC100CD0-572C-458A-8CCC-5193032269E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{9657A1FB-FA64-4F22-A508-5B8BA9FB3F7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back", "Back", "{78D2118C-1E9E-4980-A37C-5E2414CF4494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineAPI", "WineAPI\WineAPI.csproj", "{A29F85D3-F4BF-4288-8655-00FC9DE31406}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC100CD0-572C-458A-8CCC-5193032269E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC100CD0-572C-458A-8CCC-5193032269E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC100CD0-572C-458A-8CCC-5193032269E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC100CD0-572C-458A-8CCC-5193032269E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29F85D3-F4BF-4288-8655-00FC9DE31406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29F85D3-F4BF-4288-8655-00FC9DE31406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29F85D3-F4BF-4288-8655-00FC9DE31406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29F85D3-F4BF-4288-8655-00FC9DE31406}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC100CD0-572C-458A-8CCC-5193032269E1} = {9657A1FB-FA64-4F22-A508-5B8BA9FB3F7E}
+		{A29F85D3-F4BF-4288-8655-00FC9DE31406} = {78D2118C-1E9E-4980-A37C-5E2414CF4494}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {067D54EC-F412-42BB-93C3-15EF206FEA53}
+	EndGlobalSection
+EndGlobal
