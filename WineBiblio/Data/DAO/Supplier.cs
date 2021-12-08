@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WineBiblio.Business
+namespace WineBiblio.Data.DAO
 {
     public class Supplier
     {
         public int id_supplier { get; set; }
         public string Name { get; set; }
-        public List<AddressSupplier> AddressSuppliers { get; set; }
+        public DateTime creation_date { get; set; }
+        public DateTime update_date { get; set; }
     }
 }

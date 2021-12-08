@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="bin\Debug\net5.0\ref\" />
-    <Folder Include="Data\" />
     <Folder Include="obj\Debug\net5.0\ref\" />
     <Folder Include="Services\" />
   </ItemGroup>

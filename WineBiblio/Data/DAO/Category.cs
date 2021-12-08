@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WineBiblio.Business
+namespace WineBiblio.Data.DAO
 {
     public class Category
     {
         public int id_category { get; set; }
         public string name { get; set; }
-        public List<Product> ProductList { get; set; }
     }
 }
