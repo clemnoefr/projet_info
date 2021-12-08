@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Business
 {
-    internal class Order
+    public class Order
     {
+        public int id_order { get; set; }
+        public float price_ht { get; set; } 
+        public Address Address { get; set; }
+        public HistoryOrder HistoryOrder { get; set; }
+        public Invoice Invoice { get; set; }
+
     }
 }

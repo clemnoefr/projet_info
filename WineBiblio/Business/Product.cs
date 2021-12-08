@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Business
 {
-    internal class Product
+    public class Product
     {
+        public int id_product { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public string reference { get; set; }
+        public int bottled_year { get; set; }
+        public string picture { get; set; }
+        public string origine { get; set; }
+        public int quantity_stock { get; set; }
+        public AddressSupplier AddressSupplier { get; set; }
+        public Category Category { get; set; }
+
     }
 }
