@@ -14,6 +14,6 @@ namespace WineBiblio.Business
         
         public Order Order { get; set; }
         public HistoryInvoice HistoryInvoice { get; set; }
-        public Adress Adress { get; set; }
+        public Address Address { get; set; }
     }
 }
