@@ -4,4 +4,33 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net5.0\WineBiblio.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\Debug\net5.0\WineBiblio.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+    <Content Include="obj\WineBiblio.csproj.nuget.dgspec.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\net5.0\ref\" />
+    <Folder Include="Data\" />
+    <Folder Include="obj\Debug\net5.0\ref\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\net5.0\WineBiblio.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net5.0\WineBiblio.assets.cache" />
+    <None Include="obj\Debug\net5.0\WineBiblio.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net5.0\WineBiblio.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net5.0\WineBiblio.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\WineBiblio.csproj.nuget.g.props" />
+    <None Include="obj\WineBiblio.csproj.nuget.g.targets" />
+  </ItemGroup>
+
 </Project>
