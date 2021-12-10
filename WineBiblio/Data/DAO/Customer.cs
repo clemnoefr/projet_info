@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Data.DAO
 {
-    internal class Customer
+    public class Customer
     {
         public int id_customer { get; set; }
         public string mail { get; set; }

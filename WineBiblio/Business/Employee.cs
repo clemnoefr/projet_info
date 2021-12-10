@@ -9,6 +9,7 @@ namespace WineBiblio.Business
     public class Employee
     {
         public int id_employee { get; set; }
+        public string mail { get; set; }
         public int rank { get; set; }
         public string last_name { get; set; }
         public string first_name { get; set; }
