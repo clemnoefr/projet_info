@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace WineBiblio.Data.DAO
 {
     public class AddressSupplier
     {
-        public int id_address_supplier { get; set; }
+        [Key] public int id_address_supplier { get; set; }
         public int address_type { get; set; }
         public string address { get; set; }
         public int id_supplier { get; set; }
