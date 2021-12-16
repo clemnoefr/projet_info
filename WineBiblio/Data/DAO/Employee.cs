@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace WineBiblio.Data.DAO
 {
     public class Employee
     {
-        public int id_employee { get; set; }
+        [Key] public int id_employee { get; set; }
         public string mail { get; set; }
         public int rank { get; set; }
         public string last_name { get; set; }

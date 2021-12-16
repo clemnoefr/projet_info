@@ -17,6 +17,17 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
+
+        public List<Address> Get()
+        {
+            return (from c in _ctx.Address select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address }).ToList();
+        }
+
+        public Address Get(int id)
+        {
+            return (from c in _ctx.Address where c.id_address == id select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address }).FirstOrDefault();
+        }
+
         public Address Add(Address address)
         {
             var addr = new Data.DAO.Address
@@ -31,15 +42,6 @@ namespace WineBiblio.Service
             return address;
         }
 
-        public List<Address> Get()
-        {
-            return (from c in _ctx.Address select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address }).ToList();
-        }
-
-        public Address Get(int id)
-        {
-            return (from c in _ctx.Address where c.id_address == id select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address }).FirstOrDefault();
-        }
 
         public void Delete(int id)
         {

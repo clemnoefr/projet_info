@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace WineBiblio.Data.DAO
 {
     public class Invoice
     {
-        public int id_invoice { get; set; }
+        [Key] public int id_invoice { get; set; }
         public float TVA { get; set; }
         public float price_TTC { get; set; }
 

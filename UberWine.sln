@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UberAdmin", "UberWine\UberAdmin.csproj", "{AC100CD0-572C-458A-8CCC-5193032269E1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A29F85D3-F4BF-4288-8655-00FC9DE31406} = {A29F85D3-F4BF-4288-8655-00FC9DE31406}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Front", "Front", "{9657A1FB-FA64-4F22-A508-5B8BA9FB3F7E}"
 EndProject
@@ -11,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Back", "Back", "{78D2118C-1
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineAPI", "WineAPI\WineAPI.csproj", "{A29F85D3-F4BF-4288-8655-00FC9DE31406}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WineBiblio", "WineBiblio\WineBiblio.csproj", "{0DFEBDAE-1E7C-4414-A2F2-792AAA88DFB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WineBiblio", "WineBiblio\WineBiblio.csproj", "{0DFEBDAE-1E7C-4414-A2F2-792AAA88DFB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
