@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "BookStore.API": {
+    "WineClub.API": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
