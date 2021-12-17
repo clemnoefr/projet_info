@@ -19,26 +19,26 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
-        [HttpGet("/adresses/")]
+        [HttpGet("/addresses/")]
         public IActionResult Get()
         {
             return Ok(new AddressService(_ctx).Get());
         }
 
-        [HttpGet("/adresses/{id}")]
+        [HttpGet("/addresses/{id}")]
         public IActionResult Get(int id)
         {
             return Ok(new AddressService(_ctx).Get(id));
         }
 
-        [HttpDelete("/adresses/{id}")]
+        [HttpDelete("/addresses/{id}")]
         public IActionResult Delete(int id)
         {
             new AddressService(_ctx).Delete(id);
             return NoContent();
         }
 
-        [HttpPut("/adresses/{id}")]
+        [HttpPut("/addresses/{id}")]
 
         public IActionResult Edit(Address model)
         {

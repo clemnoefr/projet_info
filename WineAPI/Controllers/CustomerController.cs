@@ -9,10 +9,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WineAPI.Controllers
 {
-    public class customersController : ControllerBase
+    public class CustomerController : ControllerBase
     {
         private readonly MyDataContext _ctx;
-        public customersController(MyDataContext ctx)
+        public CustomerController(MyDataContext ctx)
         {
             _ctx = ctx;
         }
