@@ -11,16 +11,25 @@ using System.Text;
 
 namespace WineAPI
 {
+    // application startup code
+
     public class Program
     {
 
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            // for create and configurate the generic host 
+            // without running the appli because using Entity Framework Core
+            CreateHostBuilder(args).Build().Run(); 
+           
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        /* Load the application configuration from:
+        - appsettings.json.
+        - appsettings. {Environment} .json
+        */
+            Host.CreateDefaultBuilder(args) 
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
