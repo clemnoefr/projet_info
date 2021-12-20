@@ -18,6 +18,12 @@ namespace WineAPI.Controllers
         {
             _ctx = ctx;
         }
+        
+        [HttpPost("/addresses/")]
+        public IActionResult Add(Address address)
+        {
+            return Ok(new AddressService(_ctx).Add(address));
+        }
 
         [HttpGet("/addresses/")]
         public IActionResult Get()
