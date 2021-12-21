@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WineBiblio.Business;
 using WineBiblio.Core.Data;
 
+
 namespace WineBiblio.Service
 {
     public class CategoryService
@@ -46,11 +47,17 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Category model)
+        public Category Edit(int id, Category category)
         {
-            var category = _ctx.Category.Where(c => c.id_category == model.id_category).FirstOrDefault();
-            category.name = model.name;
+            var catSelected= _ctx.Category.Where(c => c.id_category == id).FirstOrDefault();
+            catSelected.name = category.name;
+            _ctx.Category.Update(catSelected);
             _ctx.SaveChanges();
+            return category;
         }
+
+
+
     }
+
 }

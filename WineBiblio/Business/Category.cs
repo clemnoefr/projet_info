@@ -10,6 +10,6 @@ namespace WineBiblio.Business
     {
         public int id_category { get; set; }
         public string name { get; set; }
-        public List<Product> ProductList { get; set; }
+        /*public List<Product> ProductList { get; set; }*/
     }
 }

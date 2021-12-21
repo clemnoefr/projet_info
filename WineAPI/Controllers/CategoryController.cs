@@ -6,18 +6,26 @@ using WineBiblio.Business;
 using WineBiblio.Core.Data;
 using WineBiblio.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.Entity.Infrastructure;
 
 namespace WineAPI.API.Controllers
 {
 
     [ApiController]
     public class CategoryController : ControllerBase
+
     {
         private readonly MyDataContext _ctx;
 
         public CategoryController(MyDataContext ctx)
         {
             _ctx = ctx;
+        }
+
+        [HttpPost("/categories/")]
+        public IActionResult Add(Category category)
+        {
+            return Ok(new CategoryService(_ctx).Add(category));
         }
 
 
@@ -41,13 +49,25 @@ namespace WineAPI.API.Controllers
         }
 
         [HttpPut("/categories/{id}")]
-
-        public IActionResult Modif(Category model)
+        public IActionResult Update(int id, Category category)
         {
-            return Ok(
-                /*new CategoryService(_ctx).Edit(model)*/
-                );
+         try
+            {
+                var categoryToUpdate = _ctx.Category.Where(c => c.id_category == id).FirstOrDefault();
+                if (id != categoryToUpdate.id_category)
+                    return BadRequest();
 
+                if (categoryToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new CategoryService(_ctx).Edit(id, category);
+            }
+                         
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
+
     }
 }

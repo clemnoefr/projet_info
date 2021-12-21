@@ -48,13 +48,14 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(AddressSupplier model)
+        public AddressSupplier Edit(int id, AddressSupplier addressSupplier)
         {
-            var AddressSupplier = _ctx.AddressSupplier.Where(c => c.id_address_supplier == model.id_address_supplier).FirstOrDefault();
-            AddressSupplier.address_type = model.address_type;
-            AddressSupplier.address = model.address;
-
+            var addressSelected = _ctx.AddressSupplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
+            addressSelected.address_type = addressSupplier.address_type;
+            addressSelected.address = addressSupplier.address;
+            _ctx.AddressSupplier.Update(addressSelected);
             _ctx.SaveChanges();
+            return addressSupplier;
         }
     }
 }

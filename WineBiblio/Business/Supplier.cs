@@ -10,6 +10,6 @@ namespace WineBiblio.Business
     {
         public int id_supplier { get; set; }
         public string Name { get; set; }
-        public List<AddressSupplier> AddressSuppliers { get; set; }
+        /*public List<AddressSupplier> AddressSuppliers { get; set; }*/
     }
 }

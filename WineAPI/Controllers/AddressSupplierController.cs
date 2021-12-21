@@ -39,13 +39,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/addressSupplier/{id}")]
-
-        public IActionResult Edit(AddressSupplier model)
+        public IActionResult Update(int id, AddressSupplier addressSupplier)
         {
-            return Ok(
-                /*new AddressSupplierService(_ctx).Update(model)*/
-                );
+            try
+            {
+                var addressSupplierToUpdate = _ctx.AddressSupplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
+                if (id != addressSupplierToUpdate.id_address_supplier)
+                    return BadRequest();
 
+                if (addressSupplierToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new AddressSupplierService(_ctx).Edit(id, addressSupplier);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }

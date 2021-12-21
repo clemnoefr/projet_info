@@ -50,12 +50,13 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Address model)
+        public Address Edit(int id, Address address)
         {
-            var Address = _ctx.Address.Where(c => c.id_address == model.id_address).FirstOrDefault();
-            Address.address_type = model.address_type;
-            Address.address = model.address;
+            var addressSelected = _ctx.Address.Where(a => a.id_address == id).FirstOrDefault();
+            addressSelected.address_type = address.address_type;
+            _ctx.Address.Update(addressSelected);
             _ctx.SaveChanges();
+            return address;
         }
     }
 }

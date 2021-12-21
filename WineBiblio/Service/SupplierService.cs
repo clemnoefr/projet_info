@@ -22,6 +22,7 @@ namespace WineBiblio.Service
             var supp = new Data.DAO.Supplier
             {
                 Name = supplier.Name
+                /*ici voir comment add l'adresse fournisseur*/
             };
             _ctx.Supplier.Add(supp);
             _ctx.SaveChanges();
@@ -46,11 +47,14 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Supplier model)
+        public Supplier Edit(int id, Supplier supplier)
         {
-            var Supplier = _ctx.Supplier.Where(c => c.id_supplier == model.id_supplier).FirstOrDefault();
-            Supplier.Name = model.Name;
+            var supplierSelected = _ctx.Supplier.Where(c => c.id_supplier == id).FirstOrDefault();
+            supplierSelected.Name = supplier.Name;
+            /*ici voir comment edit l'adresse fournisseur*/
+            _ctx.Supplier.Update(supplierSelected);
             _ctx.SaveChanges();
+            return supplier;
         }
     }
 }

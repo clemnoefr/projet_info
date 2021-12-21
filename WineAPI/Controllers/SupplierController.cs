@@ -17,6 +17,12 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/suppliers/")]
+        public IActionResult Add(Supplier supplier)
+        {
+            return Ok(new SupplierService(_ctx).Add(supplier));
+        }
+
         [HttpGet("/suppliers/")]
         public IActionResult Get()
         {
@@ -37,13 +43,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/suppliers/{id}")]
-
-        public IActionResult Edit(Supplier model)
+        public IActionResult Update(int id, Supplier supplier)
         {
-            return Ok(
-                /*new SupplierService(_ctx).Edit(model)*/
-                );
+            try
+            {
+                var supplierToUpdate = _ctx.Supplier.Where(c => c.id_supplier == id).FirstOrDefault();
+                if (id != supplierToUpdate.id_supplier)
+                    return BadRequest();
 
+                if (supplierToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new SupplierService(_ctx).Edit(id, supplier);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }
