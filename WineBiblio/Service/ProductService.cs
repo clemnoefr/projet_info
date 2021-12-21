@@ -52,17 +52,19 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Product model)
+        public Product Edit(int id, Product product)
         {
-            var Product = _ctx.Product.Where(c => c.id_product == model.id_product).FirstOrDefault();
-            Product.name = model.name;
-            Product.description = model.description;
-            Product.reference = model.reference;
-            Product.bottled_year = model.bottled_year;
-            Product.picture = model.picture;
-            Product.origine = model.origine;
-            Product.quantity_stock = model.quantity_stock;
+            var productSelected = _ctx.Product.Where(c => c.id_product == id).FirstOrDefault();
+            productSelected.name = product.name;
+            productSelected.description = product.description;
+            productSelected.reference = product.reference;
+            productSelected.bottled_year = product.bottled_year;
+            productSelected.picture = product.picture;
+            productSelected.origine = product.origine;
+            productSelected.quantity_stock = product.quantity_stock;
+            _ctx.Product.Update(productSelected);
             _ctx.SaveChanges();
+            return product;
         }
     }
 }

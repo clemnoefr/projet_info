@@ -17,7 +17,7 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public HistoryInvoice Add(Business.HistoryInvoice HistoryInvoice)
+        public HistoryInvoice Add(HistoryInvoice HistoryInvoice)
         {
             var HisIn = new Data.DAO.HistoryInvoice
             {
@@ -47,11 +47,13 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(HistoryInvoice model)
+        public HistoryInvoice Edit(int id, HistoryInvoice historyInvoice)
         {
-            var HistoryInvoice = _ctx.HistoryInvoice.Where(c => c.id_history_invoice == model.id_history_invoice).FirstOrDefault();
-            HistoryInvoice.file_invoice = model.file_invoice;
+            var historyInvoiceSelected = _ctx.HistoryInvoice.Where(c => c.id_history_invoice == id).FirstOrDefault();
+            historyInvoiceSelected.file_invoice = historyInvoice.file_invoice;
+            _ctx.HistoryInvoice.Update(historyInvoiceSelected);
             _ctx.SaveChanges();
+            return historyInvoice;
         }
     }
 }

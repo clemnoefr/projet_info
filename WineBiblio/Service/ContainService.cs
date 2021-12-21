@@ -46,11 +46,13 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Contain model)
+        public Contain Edit(int id, Contain contain)
         {
-            var Contain = _ctx.Contain.Where(c => c.id_contain == model.id_contain).FirstOrDefault();
-            Contain.quantity_sell = model.quantity_sell;
+            var containSelected = _ctx.Contain.Where(c => c.id_contain == id).FirstOrDefault();
+            containSelected.quantity_sell = contain.quantity_sell;
+            _ctx.Contain.Update(containSelected);
             _ctx.SaveChanges();
+            return contain;
         }
     }
 }

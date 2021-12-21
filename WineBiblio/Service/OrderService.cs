@@ -47,11 +47,13 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Order model)
+        public Order Edit(int id, Order order)
         {
-            var Order = _ctx.Order.Where(c => c.id_order == model.id_order).FirstOrDefault();
-            Order.price_ht = model.price_ht;
+            var orderSelected = _ctx.Order.Where(c => c.id_order == id).FirstOrDefault();
+            orderSelected.price_ht = order.price_ht;
+            _ctx.Order.Update(orderSelected);
             _ctx.SaveChanges();
+            return order;
         }
     }
 }

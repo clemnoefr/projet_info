@@ -17,6 +17,12 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/historyOrder/")]
+        public IActionResult Add(HistoryOrder historyOrder)
+        {
+            return Ok(new HistoryOrderService(_ctx).Add(historyOrder));
+        }
+
         [HttpGet("/historyOrder/")]
         public IActionResult Get()
         {
@@ -37,13 +43,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/historyOrder/{id}")]
-
-        public IActionResult Edit(HistoryOrder model)
+        public IActionResult Update(int id, HistoryOrder historyOrder)
         {
-            return Ok(
-                /*new HistoryOrderService(_ctx).Edit(model)*/
-                 );
+            try
+            {
+                var historyOrderToUpdate = _ctx.HistoryOrder.Where(c => c.id_history_order== id).FirstOrDefault();
+                if (id != historyOrderToUpdate.id_history_order)
+                    return BadRequest();
 
+                if (historyOrderToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new HistoryOrderService(_ctx).Edit(id, historyOrder);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }

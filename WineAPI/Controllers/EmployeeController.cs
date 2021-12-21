@@ -17,6 +17,12 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/employees/")]
+        public IActionResult Add(Employee employee)
+        {
+            return Ok(new EmployeeService(_ctx).Add(employee));
+        }
+
         [HttpGet("/employees/")]
         public IActionResult Get()
         {
@@ -37,13 +43,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/employees/{id}")]
-
-        public IActionResult Edit(Employee model)
+        public IActionResult Update(int id, Employee employee)
         {
-            return Ok(
-                /*new EmployeeService(_ctx).Edit(model)*/
-                );
+            try
+            {
+                var employeeToUpdate = _ctx.Employee.Where(c => c.id_employee == id).FirstOrDefault();
+                if (id != employeeToUpdate.id_employee)
+                    return BadRequest();
 
+                if (employeeToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new EmployeeService(_ctx).Edit(id, employee);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public Invoice Add(Business.Invoice invoice)
+        public Invoice Add(Invoice invoice)
         {
             var inv = new Data.DAO.Invoice
             {
@@ -47,13 +47,14 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Invoice model)
+        public Invoice Edit(int id, Invoice invoice)
         {
-            var invoice = _ctx.Invoice.Where(c => c.id_invoice == model.id_invoice).FirstOrDefault();
-            invoice.TVA = model.TVA;
-            invoice.price_TTC = model.price_TTC;
-
+            var invoiceSelected = _ctx.Invoice.Where(c => c.id_invoice == id).FirstOrDefault();
+            invoiceSelected.TVA = invoice.TVA;
+            invoiceSelected.price_TTC = invoice.price_TTC;
+            _ctx.Invoice.Update(invoiceSelected);
             _ctx.SaveChanges();
+            return invoice;
         }
     }
 }

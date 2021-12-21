@@ -17,6 +17,12 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/products/")]
+        public IActionResult Add(Product product)
+        {
+            return Ok(new ProductService(_ctx).Add(product));
+        }
+
         [HttpGet("/products/")]
         public IActionResult Get()
         {
@@ -37,13 +43,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/products/{id}")]
-
-        public IActionResult Edit(Product model)
+        public IActionResult Update(int id, Product product)
         {
-            return Ok(
-                /*new ProductService(_ctx).Edit(model)*/
-                );
+            try
+            {
+                var productToUpdate = _ctx.Product.Where(c => c.id_product == id).FirstOrDefault();
+                if (id != productToUpdate.id_product)
+                    return BadRequest();
 
+                if (productToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new ProductService(_ctx).Edit(id, product);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }

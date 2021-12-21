@@ -17,7 +17,7 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public HistoryOrder Add(Business.HistoryOrder HistoryOrder)
+        public HistoryOrder Add(HistoryOrder HistoryOrder)
         {
             var HisOrd = new Data.DAO.HistoryOrder
             {
@@ -46,11 +46,13 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(HistoryOrder model)
+        public HistoryOrder Edit(int id, HistoryOrder historyOrder)
         {
-            var HistoryOrder = _ctx.HistoryOrder.Where(c => c.id_history_order == model.id_history_order).FirstOrDefault();
-            HistoryOrder.order_file = model.order_file;
+            var historyOrderSelected = _ctx.HistoryOrder.Where(c => c.id_history_order == id).FirstOrDefault();
+            historyOrderSelected.order_file = historyOrder.order_file;
+            _ctx.HistoryOrder.Update(historyOrderSelected);
             _ctx.SaveChanges();
+            return historyOrder;
         }
     }
 }

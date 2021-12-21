@@ -17,6 +17,13 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/invoices/")]
+        public IActionResult Add(Invoice invoice)
+        {
+            return Ok(new InvoiceService(_ctx).Add(invoice));
+        }
+
+
         [HttpGet("/invoices/")]
         public IActionResult Get()
         {
@@ -37,13 +44,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/invoices/{id}")]
-
-        public IActionResult Edit(Invoice model)
+        public IActionResult Update(int id, Invoice invoice)
         {
-            return Ok(
-                /*new InvoiceService(_ctx).Edit(model)*/
-                 );
+            try
+            {
+                var invoiceToUpdate = _ctx.Invoice.Where(c => c.id_invoice == id).FirstOrDefault();
+                if (id != invoiceToUpdate.id_invoice)
+                    return BadRequest();
 
+                if (invoiceToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new InvoiceService(_ctx).Edit(id, invoice);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }

@@ -51,16 +51,17 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Customer model)
+        public Customer Edit(int id, Customer customer)
         {
-            var Customer = _ctx.Customer.Where(c => c.id_customer == model.id_customer).FirstOrDefault();
-            Customer.mail = model.mail;
-            Customer.last_name = model.last_name;
-            Customer.first_name = model.first_name;
-            Customer.password = model.password;
-            Customer.phone = model.phone;
-
+            var customerSelected = _ctx.Customer.Where(c => c.id_customer == id).FirstOrDefault();
+            customerSelected.mail = customer.mail;
+            customerSelected.last_name = customer.last_name;
+            customerSelected.first_name = customer.first_name;
+            customerSelected.password = customer.password;
+            customerSelected.phone = customer.phone;
+            _ctx.Customer.Update(customerSelected);
             _ctx.SaveChanges();
+            return customer;
         }
     }
 }

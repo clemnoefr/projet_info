@@ -17,6 +17,12 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/customers/")]
+        public IActionResult Add(Customer customer)
+        {
+            return Ok(new CustomerService(_ctx).Add(customer));
+        }
+
         [HttpGet("/customers/")]
         public IActionResult Get()
         {
@@ -37,13 +43,24 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/customers/{id}")]
-
-        public IActionResult Edit(Customer model)
+        public IActionResult Update(int id, Customer customer)
         {
-            return Ok(
-                /*new CustomerService(_ctx).Edit(model)*/
-                );
+            try
+            {
+                var customerToUpdate = _ctx.Category.Where(c => c.id_category == id).FirstOrDefault();
+                if (id != customerToUpdate.id_category)
+                    return BadRequest();
 
+                if (customerToUpdate == null)
+                    return NotFound();
+
+                return (IActionResult)new CustomerService(_ctx).Edit(id, customer);
+            }
+
+            catch (Exception)
+            {
+                return new NoContentResult();
+            }
         }
     }
 }

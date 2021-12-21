@@ -52,17 +52,18 @@ namespace WineBiblio.Service
             _ctx.SaveChanges();
         }
 
-        public void Edit(Employee model)
+        public Employee Edit(int id, Employee employee)
         {
-            var Employee = _ctx.Employee.Where(c => c.id_employee == model.id_employee).FirstOrDefault();
-            Employee.mail = model.mail;
-            Employee.rank = model.rank;
-            Employee.last_name = model.last_name;
-            Employee.first_name = model.first_name;
-            Employee.password = model.password;
-            Employee.phone = model.phone;
-
+            var employeeSelected = _ctx.Employee.Where(c => c.id_employee == id).FirstOrDefault();
+            employeeSelected.mail = employee.mail;
+            employeeSelected.rank = employee.rank;
+            employeeSelected.last_name = employee.last_name;
+            employeeSelected.first_name = employee.first_name;
+            employeeSelected.password = employee.password;
+            employeeSelected.phone = employee.phone;
+            _ctx.Employee.Update(employeeSelected);
             _ctx.SaveChanges();
+            return employee;
         }
     }
 }

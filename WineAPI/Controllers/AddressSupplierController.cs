@@ -19,6 +19,12 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
 
+        [HttpPost("/addressSupplier/")]
+        public IActionResult Add(AddressSupplier addressSupplier)
+        {
+            return Ok(new AddressSupplierService(_ctx).Add(addressSupplier));
+        }
+
         [HttpGet("/addressSupplier/")]
         public IActionResult Get()
         {
