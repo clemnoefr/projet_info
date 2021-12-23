@@ -22,6 +22,7 @@ namespace WineBiblio.Service
             var HisIn = new Data.DAO.HistoryInvoice
             {
                 file_invoice = HistoryInvoice.file_invoice,
+                id_invoice = HistoryInvoice.Invoice.id_invoice
 
             };
             _ctx.HistoryInvoice.Add(HisIn);

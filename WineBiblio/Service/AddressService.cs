@@ -33,7 +33,8 @@ namespace WineBiblio.Service
             var addr = new Data.DAO.Address
             {
                 address_type = address.address_type,
-                address = address.address
+                address = address.address,
+               id_customer = address.Customer.id_customer
 
             };
             _ctx.Address.Add(addr);

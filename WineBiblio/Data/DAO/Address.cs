@@ -16,7 +16,7 @@ namespace WineBiblio.Data.DAO
         public int id_customer { get; set; }
         [ForeignKey("id_customer")]
 
-        public DateTime creation_date_ { get; set; }
+        public DateTime creation_date { get; set; }
         public DateTime update_date { get; set; }
     }
 }

@@ -21,7 +21,9 @@ namespace WineBiblio.Service
         {
             var cont = new Data.DAO.Contain
             {
-                quantity_sell = contain.quantity_sell
+                quantity_sell = contain.quantity_sell,
+                id_order = contain.Order.id_order,
+                id_product = contain.Product.id_product,
             };
             _ctx.Contain.Add(cont);
             _ctx.SaveChanges();

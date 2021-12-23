@@ -23,6 +23,7 @@ namespace WineBiblio.Service
             {
                 address_type = AddressSupplier.address_type,
                 address = AddressSupplier.address,
+                id_supplier = AddressSupplier.Supplier.id_supplier
                
             };
             _ctx.AddressSupplier.Add(AddSup);

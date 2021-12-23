@@ -22,7 +22,9 @@ namespace WineBiblio.Service
             var inv = new Data.DAO.Invoice
             {
                 TVA = invoice.TVA,
-                price_TTC = invoice.price_TTC
+                price_TTC = invoice.price_TTC,
+                id_address = invoice.Address.id_address,
+                id_order = invoice.Order.id_order
             };
             _ctx.Invoice.Add(inv);
             _ctx.SaveChanges();

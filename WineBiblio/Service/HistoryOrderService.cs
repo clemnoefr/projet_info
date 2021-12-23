@@ -21,7 +21,9 @@ namespace WineBiblio.Service
         {
             var HisOrd = new Data.DAO.HistoryOrder
             {
-                order_file = HistoryOrder.order_file
+                order_file = HistoryOrder.order_file,
+                id_order = HistoryOrder.Order.id_order
+
             };
             _ctx.HistoryOrder.Add(HisOrd);
             _ctx.SaveChanges();

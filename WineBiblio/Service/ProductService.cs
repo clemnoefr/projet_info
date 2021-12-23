@@ -27,7 +27,10 @@ namespace WineBiblio.Service
                 bottled_year = Product.bottled_year,
                 picture = Product.picture,
                 origine = Product.origine,
-                quantity_stock = Product.quantity_stock
+                quantity_stock = Product.quantity_stock,
+                id_address_supplier = Product.AddressSupplier.id_address_supplier,
+                id_category = Product.Category.id_category
+                
             };
             _ctx.Product.Add(Prod);
             _ctx.SaveChanges();

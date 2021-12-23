@@ -21,7 +21,8 @@ namespace WineBiblio.Service
         {
             var order = new Data.DAO.Order
             {
-                price_ht = Order.price_ht
+                price_ht = Order.price_ht,
+                id_address = Order.Address.id_address
 
             };
             _ctx.Order.Add(order);
