@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "mssql1": {
-      "secretStore": "LocalSecretsFile",
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/wine-server/databases/Wine_Club_BDD",
-      "type": "mssql.azure",
-      "connectionId": "wine-server.database.windows.net"
-    },
     "secrets1": {
       "secretStore": null,
       "resourceId": null,
