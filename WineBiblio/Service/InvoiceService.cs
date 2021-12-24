@@ -23,8 +23,8 @@ namespace WineBiblio.Service
             {
                 TVA = invoice.TVA,
                 price_TTC = invoice.price_TTC,
-                id_address = invoice.Address.id_address,
-                id_order = invoice.Order.id_order
+                id_address = invoice.id_address,
+                id_order = invoice.id_order
             };
             _ctx.Invoice.Add(inv);
             _ctx.SaveChanges();

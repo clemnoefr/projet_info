@@ -11,7 +11,7 @@ namespace WineBiblio.Business
         public int id_address { get; set; }
         public int address_type { get; set; }
         public string address { get; set; }
-        public Customer Customer { get; set; }
+        public int id_customer { get; set; }
         public List<Order> orderList { get; set; }
         public List<Invoice> invoiceList { get; set; }
     }

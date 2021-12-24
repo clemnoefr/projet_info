@@ -10,6 +10,6 @@ namespace WineBiblio.Business
     {
         public int id_history_invoice { get; set; }
         public string file_invoice { get; set; }
-        public Invoice Invoice { get; set; }
+        public int id_invoice { get; set; }
     }
 }

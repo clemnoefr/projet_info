@@ -34,7 +34,7 @@ namespace WineBiblio.Service
             {
                 address_type = address.address_type,
                 address = address.address,
-               id_customer = address.Customer.id_customer
+               id_customer = address.id_customer
 
             };
             _ctx.Address.Add(addr);

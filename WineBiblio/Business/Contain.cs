@@ -9,8 +9,8 @@ namespace WineBiblio.Business
     public class Contain
     {
         public int id_contain { get; set; }
-        public Order Order { get; set; }
-        public Product Product { get; set; }
+        public int id_order { get; set; }
+        public int id_product { get; set; }
         public int quantity_sell { get; set; }
 
     }

@@ -28,8 +28,8 @@ namespace WineBiblio.Service
                 picture = Product.picture,
                 origine = Product.origine,
                 quantity_stock = Product.quantity_stock,
-                id_address_supplier = Product.AddressSupplier.id_address_supplier,
-                id_category = Product.Category.id_category
+                id_address_supplier = Product.id_address_supplier,
+                id_category = Product.id_category
                 
             };
             _ctx.Product.Add(Prod);

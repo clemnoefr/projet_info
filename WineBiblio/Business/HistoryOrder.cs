@@ -10,6 +10,6 @@ namespace WineBiblio.Business
     {
         public int id_history_order { get; set; }
         public string order_file { get; set; }
-        public Order Order { get; set; }
+        public int id_order { get; set; }
     }
 }

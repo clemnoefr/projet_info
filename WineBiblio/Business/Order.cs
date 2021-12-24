@@ -10,6 +10,6 @@ namespace WineBiblio.Business
     {
         public int id_order { get; set; }
         public float price_ht { get; set; } 
-        public Address Address { get; set; }
+        public int id_address { get; set; }
     }
 }

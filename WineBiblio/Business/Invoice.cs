@@ -11,7 +11,7 @@ namespace WineBiblio.Business
         public int id_invoice { get; set; }
         public float TVA { get; set; }
         public float price_TTC { get; set; }
-        public Order Order { get; set; }
-        public Address Address { get; set; }
+        public int id_order { get; set; }
+        public int id_address { get; set; }
     }
 }

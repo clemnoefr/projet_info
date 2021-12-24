@@ -16,8 +16,8 @@ namespace WineBiblio.Business
         public string picture { get; set; }
         public string origine { get; set; }
         public int quantity_stock { get; set; }
-        public AddressSupplier AddressSupplier { get; set; }
-        public Category Category { get; set; }
+        public int id_address_supplier { get; set; }
+        public int id_category { get; set; }
 
     }
 }
