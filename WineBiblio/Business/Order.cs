@@ -9,7 +9,7 @@ namespace WineBiblio.Business
     public class Order
     {
         public int id_order { get; set; }
-        public float price_ht { get; set; } 
+        public double price_ht { get; set; } 
         public int id_address { get; set; }
     }
 }

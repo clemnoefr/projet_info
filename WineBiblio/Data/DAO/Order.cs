@@ -10,7 +10,7 @@ namespace WineBiblio.Data.DAO
     public class Order
     {
         [Key] public int id_order { get; set; }
-        public float price_ht { get; set; }
+        public double price_ht { get; set; }
         public int id_address { get; set; }
         public DateTime creation_date { get; set; }
         public DateTime update_date { get; set; }

@@ -10,8 +10,8 @@ namespace WineBiblio.Data.DAO
     public class Invoice
     {
         [Key] public int id_invoice { get; set; }
-        public float TVA { get; set; }
-        public float price_TTC { get; set; }
+        public double TVA { get; set; }
+        public double price_TTC { get; set; }
         public int id_order { get; set; }
         public int id_address { get; set; }
         public DateTime creation_date { get; set; }
