@@ -18,7 +18,7 @@ namespace WineAPI.Controllers
         }
 
         [HttpPost("/historyInvoice/")]
-        public IActionResult Add(HistoryInvoice historyInvoice)
+        public IActionResult Add(History_Invoice historyInvoice)
         {
             return Ok(new HistoryInvoiceService(_ctx).Add(historyInvoice));
         }
@@ -44,11 +44,11 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/historyInvoice/{id}")]
-        public IActionResult Update(int id, HistoryInvoice historyInvoice)
+        public IActionResult Update(int id, History_Invoice historyInvoice)
         {
             try
             {
-                var historyInvoiceToUpdate = _ctx.HistoryInvoice.Where(c => c.id_history_invoice == id).FirstOrDefault();
+                var historyInvoiceToUpdate = _ctx.History_Invoice.Where(c => c.id_history_invoice == id).FirstOrDefault();
                 if (id != historyInvoiceToUpdate.id_history_invoice)
                     return BadRequest();
 
