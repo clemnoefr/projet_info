@@ -33,12 +33,12 @@ namespace WineBiblio.Service
 
         public List<History_Invoice> Get()
         {
-            return (from c in _ctx.History_Invoice select new History_Invoice { id_history_invoice = c.id_history_invoice, file_invoice = c.file_invoice }).ToList();
+            return (from c in _ctx.History_Invoice select new History_Invoice { id_history_invoice = c.id_history_invoice, file_invoice = c.file_invoice, id_invoice = c.id_invoice }).ToList();
         }
 
         public History_Invoice Get(int id)
         {
-            return (from c in _ctx.History_Invoice where c.id_history_invoice == id select new History_Invoice { id_history_invoice = c.id_invoice, file_invoice = c.file_invoice }).FirstOrDefault();
+            return (from c in _ctx.History_Invoice where c.id_history_invoice == id select new History_Invoice { id_history_invoice = c.id_invoice, file_invoice = c.file_invoice, id_invoice = c.id_invoice }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -52,6 +52,7 @@ namespace WineBiblio.Service
         {
             var historyInvoiceSelected = _ctx.History_Invoice.Where(c => c.id_history_invoice == id).FirstOrDefault();
             historyInvoiceSelected.file_invoice = historyInvoice.file_invoice;
+            historyInvoiceSelected.id_invoice = historyInvoice.id_invoice;
             _ctx.History_Invoice.Update(historyInvoiceSelected);
             _ctx.SaveChanges();
             return historyInvoice;

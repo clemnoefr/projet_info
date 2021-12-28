@@ -33,12 +33,12 @@ namespace WineBiblio.Service
 
         public List<History_Order> Get()
         {
-            return (from c in _ctx.History_Order select new History_Order { id_history_order = c.id_history_order, order_file = c.order_file }).ToList();
+            return (from c in _ctx.History_Order select new History_Order { id_history_order = c.id_history_order, order_file = c.order_file, id_order = c.id_order }).ToList();
         }
 
         public History_Order Get(int id)
         {
-            return (from c in _ctx.History_Order where c.id_history_order == id select new History_Order { id_history_order = c.id_history_order, order_file = c.order_file }).FirstOrDefault();
+            return (from c in _ctx.History_Order where c.id_history_order == id select new History_Order { id_history_order = c.id_history_order, order_file = c.order_file, id_order = c.id_order }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -52,6 +52,7 @@ namespace WineBiblio.Service
         {
             var historyOrderSelected = _ctx.History_Order.Where(c => c.id_history_order == id).FirstOrDefault();
             historyOrderSelected.order_file = historyOrder.order_file;
+            historyOrderSelected.id_order = historyOrder.id_order;
             _ctx.History_Order.Update(historyOrderSelected);
             _ctx.SaveChanges();
             return historyOrder;
