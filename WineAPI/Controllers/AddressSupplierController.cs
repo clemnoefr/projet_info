@@ -20,7 +20,7 @@ namespace WineAPI.Controllers
         }
 
         [HttpPost("/addressSupplier/")]
-        public IActionResult Add(Address_Supplier addressSupplier)
+        public IActionResult Add(AddressSupplier addressSupplier)
         {
             return Ok(new AddressSupplierService(_ctx).Add(addressSupplier));
         }
@@ -45,11 +45,11 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/addressSupplier/{id}")]
-        public IActionResult Update(int id, Address_Supplier addressSupplier)
+        public IActionResult Update(int id, AddressSupplier addressSupplier)
         {
             try
             {
-                var addressSupplierToUpdate = _ctx.Address_Supplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
+                var addressSupplierToUpdate = _ctx.AddressSupplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
                 if (id != addressSupplierToUpdate.id_address_supplier)
                     return BadRequest();
 

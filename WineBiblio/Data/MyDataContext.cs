@@ -23,13 +23,13 @@ namespace WineBiblio.Core.Data
         = so  they are automatically initialized when the instance of the derived context is created.
         */
         public DbSet<Address> Address { get; set; }
-        public DbSet<Address_Supplier> Address_Supplier { get; set; }
+        public DbSet<AddressSupplier> AddressSupplier { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Contain> Contain { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Employee> Employee { get; set; }
-        public DbSet<History_Invoice> History_Invoice { get; set; }
-        public DbSet<History_Order> History_Order { get; set; }
+        public DbSet<HistoryInvoice> HistoryInvoice { get; set; }
+        public DbSet<HistoryOrder> HistoryOrder { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<Product> Product { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Business
 {
-    public class Address_Supplier
+    public class AddressSupplier
     {
         public int id_address_supplier { get; set; }
         public int address_type { get; set; }

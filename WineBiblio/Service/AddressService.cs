@@ -20,12 +20,12 @@ namespace WineBiblio.Service
 
         public List<Address> Get()
         {
-            return (from c in _ctx.Address select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address, id_customer = c.id_customer }).ToList();
+            return (from c in _ctx.Address select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address }).ToList();
         }
 
         public Address Get(int id)
         {
-            return (from c in _ctx.Address where c.id_address == id select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address, id_customer = c.id_customer }).FirstOrDefault();
+            return (from c in _ctx.Address where c.id_address == id select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address }).FirstOrDefault();
         }
 
         public Address Add(Address address)
@@ -55,7 +55,6 @@ namespace WineBiblio.Service
         {
             var addressSelected = _ctx.Address.Where(a => a.id_address == id).FirstOrDefault();
             addressSelected.address_type = address.address_type;
-            addressSelected.id_customer = address.id_customer;
             _ctx.Address.Update(addressSelected);
             _ctx.SaveChanges();
             return address;

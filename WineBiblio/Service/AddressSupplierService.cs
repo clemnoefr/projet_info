@@ -17,45 +17,44 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public Address_Supplier Add(Business.Address_Supplier AddressSupplier)
+        public AddressSupplier Add(Business.AddressSupplier AddressSupplier)
         {
-            var AddSup = new Data.DAO.Address_Supplier
+            var AddSup = new Data.DAO.AddressSupplier
             {
                 address_type = AddressSupplier.address_type,
                 address = AddressSupplier.address,
                 id_supplier = AddressSupplier.id_supplier
                
             };
-            _ctx.Address_Supplier.Add(AddSup);
+            _ctx.AddressSupplier.Add(AddSup);
             _ctx.SaveChanges();
             AddressSupplier.id_address_supplier = AddSup.id_address_supplier;
             return AddressSupplier;
         }
 
-        public List<Address_Supplier> Get()
+        public List<AddressSupplier> Get()
         {
-            return (from c in _ctx.Address_Supplier select new Address_Supplier { id_address_supplier = c.id_address_supplier, address_type = c.address_type, address = c.address, id_supplier = c.id_supplier }).ToList();
+            return (from c in _ctx.AddressSupplier select new AddressSupplier { id_address_supplier = c.id_address_supplier, address_type = c.address_type, address = c.address }).ToList();
         }
 
-        public Address_Supplier Get(int id)
+        public AddressSupplier Get(int id)
         {
-            return (from c in _ctx.Address_Supplier where c.id_address_supplier == id select new Address_Supplier { id_address_supplier = c.id_address_supplier, address_type = c.address_type, address = c.address, id_supplier = c.id_supplier }).FirstOrDefault();
+            return (from c in _ctx.AddressSupplier where c.id_address_supplier == id select new AddressSupplier { id_address_supplier = c.id_address_supplier, address_type = c.address_type, address = c.address }).FirstOrDefault();
         }
 
         public void Delete(int id)
         {
-            var cat = _ctx.Address_Supplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
-            _ctx.Address_Supplier.Remove(cat);
+            var cat = _ctx.AddressSupplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
+            _ctx.AddressSupplier.Remove(cat);
             _ctx.SaveChanges();
         }
 
-        public Address_Supplier Edit(int id, Address_Supplier addressSupplier)
+        public AddressSupplier Edit(int id, AddressSupplier addressSupplier)
         {
-            var addressSelected = _ctx.Address_Supplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
+            var addressSelected = _ctx.AddressSupplier.Where(c => c.id_address_supplier == id).FirstOrDefault();
             addressSelected.address_type = addressSupplier.address_type;
             addressSelected.address = addressSupplier.address;
-            addressSelected.id_supplier = addressSelected.id_supplier;
-            _ctx.Address_Supplier.Update(addressSelected);
+            _ctx.AddressSupplier.Update(addressSelected);
             _ctx.SaveChanges();
             return addressSupplier;
         }

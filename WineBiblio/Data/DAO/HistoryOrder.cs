@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Data.DAO
 {
-    public class History_Invoice
+    public class HistoryOrder
     {
-        [Key] public int id_history_invoice { get; set; }
-        public string file_invoice { get; set; }
-        public int id_invoice { get; set; }
+        [Key] public int id_history_order { get; set; }
+        public string order_file { get; set; }
+        public int id_order { get; set; }
         public DateTime creation_date { get; set; }
         public DateTime update_date { get; set; }
     }

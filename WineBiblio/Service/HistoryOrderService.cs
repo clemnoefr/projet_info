@@ -17,43 +17,42 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public History_Order Add(History_Order HistoryOrder)
+        public HistoryOrder Add(HistoryOrder HistoryOrder)
         {
-            var HisOrd = new Data.DAO.History_Order
+            var HisOrd = new Data.DAO.HistoryOrder
             {
                 order_file = HistoryOrder.order_file,
                 id_order = HistoryOrder.id_order
 
             };
-            _ctx.History_Order.Add(HisOrd);
+            _ctx.HistoryOrder.Add(HisOrd);
             _ctx.SaveChanges();
             HistoryOrder.id_history_order = HisOrd.id_history_order;
             return HistoryOrder;
         }
 
-        public List<History_Order> Get()
+        public List<HistoryOrder> Get()
         {
-            return (from c in _ctx.History_Order select new History_Order { id_history_order = c.id_history_order, order_file = c.order_file, id_order = c.id_order }).ToList();
+            return (from c in _ctx.HistoryOrder select new HistoryOrder { id_history_order = c.id_history_order, order_file = c.order_file }).ToList();
         }
 
-        public History_Order Get(int id)
+        public HistoryOrder Get(int id)
         {
-            return (from c in _ctx.History_Order where c.id_history_order == id select new History_Order { id_history_order = c.id_history_order, order_file = c.order_file, id_order = c.id_order }).FirstOrDefault();
+            return (from c in _ctx.HistoryOrder where c.id_history_order == id select new HistoryOrder { id_history_order = c.id_history_order, order_file = c.order_file }).FirstOrDefault();
         }
 
         public void Delete(int id)
         {
-            var cat = _ctx.History_Order.Where(c => c.id_history_order == id).FirstOrDefault();
-            _ctx.History_Order.Remove(cat);
+            var cat = _ctx.HistoryOrder.Where(c => c.id_history_order == id).FirstOrDefault();
+            _ctx.HistoryOrder.Remove(cat);
             _ctx.SaveChanges();
         }
 
-        public History_Order Edit(int id, History_Order historyOrder)
+        public HistoryOrder Edit(int id, HistoryOrder historyOrder)
         {
-            var historyOrderSelected = _ctx.History_Order.Where(c => c.id_history_order == id).FirstOrDefault();
+            var historyOrderSelected = _ctx.HistoryOrder.Where(c => c.id_history_order == id).FirstOrDefault();
             historyOrderSelected.order_file = historyOrder.order_file;
-            historyOrderSelected.id_order = historyOrder.id_order;
-            _ctx.History_Order.Update(historyOrderSelected);
+            _ctx.HistoryOrder.Update(historyOrderSelected);
             _ctx.SaveChanges();
             return historyOrder;
         }

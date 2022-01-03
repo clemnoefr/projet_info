@@ -40,12 +40,12 @@ namespace WineBiblio.Service
 
         public List<Product> Get()
         {
-            return (from c in _ctx.Product select new Product { id_product = c.id_product, name = c.name, description = c.description, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, quantity_stock = c.quantity_stock, id_address_supplier = c.id_address_supplier, id_category = c.id_category }).ToList();
+            return (from c in _ctx.Product select new Product { id_product = c.id_product, name = c.name, description = c.description, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, quantity_stock = c.quantity_stock }).ToList();
         }
 
         public Product Get(int id)
         {
-            return (from c in _ctx.Product where c.id_product == id select new Product { id_product = c.id_product, name = c.name, description = c.description, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, quantity_stock = c.quantity_stock, id_address_supplier = c.id_address_supplier, id_category = c.id_category }).FirstOrDefault();
+            return (from c in _ctx.Product where c.id_product == id select new Product { id_product = c.id_product, name = c.name, description = c.description, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, quantity_stock = c.quantity_stock }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -65,8 +65,6 @@ namespace WineBiblio.Service
             productSelected.picture = product.picture;
             productSelected.origine = product.origine;
             productSelected.quantity_stock = product.quantity_stock;
-            productSelected.id_address_supplier = product.id_address_supplier;
-            productSelected.id_category = product.id_category;
             _ctx.Product.Update(productSelected);
             _ctx.SaveChanges();
             return product;

@@ -31,14 +31,14 @@ namespace WineBiblio.Service
             return Order;
         }
 
-        public List<Order> Get() 
+        public List<Order> Get()
         {
-            return (from c in _ctx.Order select new Order { id_order = c.id_order, price_ht = c.price_ht, id_address = c.id_address }).ToList();
+            return (from c in _ctx.Order select new Order { id_order = c.id_order, price_ht = c.price_ht }).ToList();
         }
 
         public Order Get(int id)
         {
-            return (from c in _ctx.Order where c.id_order == id select new Order { id_order = c.id_order, price_ht = c.price_ht, id_address = c.id_address }).FirstOrDefault();
+            return (from c in _ctx.Order where c.id_order == id select new Order { id_order = c.id_order, price_ht = c.price_ht }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -52,7 +52,6 @@ namespace WineBiblio.Service
         {
             var orderSelected = _ctx.Order.Where(c => c.id_order == id).FirstOrDefault();
             orderSelected.price_ht = order.price_ht;
-            orderSelected.id_address = order.id_address;
             _ctx.Order.Update(orderSelected);
             _ctx.SaveChanges();
             return order;

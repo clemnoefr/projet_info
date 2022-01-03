@@ -33,12 +33,12 @@ namespace WineBiblio.Service
 
         public List<Contain> Get()
         {
-            return (from c in _ctx.Contain select new Contain { id_contain = c.id_contain, quantity_sell = c.quantity_sell, id_order = c.id_order, id_product = c.id_product }).ToList();
+            return (from c in _ctx.Contain select new Contain { id_contain = c.id_contain, quantity_sell = c.quantity_sell }).ToList();
         }
 
         public Contain Get(int id)
         {
-            return (from c in _ctx.Contain where c.id_contain == id select new Contain { id_contain = c.id_contain, quantity_sell = c.quantity_sell, id_order = c.id_order, id_product = c.id_product }).FirstOrDefault();
+            return (from c in _ctx.Contain where c.id_contain == id select new Contain { id_contain = c.id_contain, quantity_sell = c.quantity_sell }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -52,8 +52,6 @@ namespace WineBiblio.Service
         {
             var containSelected = _ctx.Contain.Where(c => c.id_contain == id).FirstOrDefault();
             containSelected.quantity_sell = contain.quantity_sell;
-            containSelected.id_product = contain.id_product;
-            containSelected.id_order = contain.id_order;
             _ctx.Contain.Update(containSelected);
             _ctx.SaveChanges();
             return contain;

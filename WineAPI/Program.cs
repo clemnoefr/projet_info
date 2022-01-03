@@ -20,7 +20,7 @@ namespace WineAPI
         {
             // for create and configurate the generic host 
             // without running the appli because using Entity Framework Core
-            CreateHostBuilder(args).Build().Run(); 
+            CreateHostBuilder(args).Build().Run();
            
         }
 
