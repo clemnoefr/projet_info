@@ -38,12 +38,12 @@
             this.CategoryName = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Reference = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiseEnBouteille = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Origine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantitee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -55,9 +55,10 @@
             this.WhiteButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WhiteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WhiteButton.ForeColor = System.Drawing.Color.White;
-            this.WhiteButton.Location = new System.Drawing.Point(88, 0);
+            this.WhiteButton.Location = new System.Drawing.Point(101, 0);
+            this.WhiteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.WhiteButton.Name = "WhiteButton";
-            this.WhiteButton.Size = new System.Drawing.Size(178, 82);
+            this.WhiteButton.Size = new System.Drawing.Size(203, 109);
             this.WhiteButton.TabIndex = 0;
             this.WhiteButton.Text = "Blanc";
             this.WhiteButton.UseVisualStyleBackColor = false;
@@ -67,11 +68,13 @@
             // 
             this.pictureBox1.Image = global::WineAdmin.Properties.Resources.WINE;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 82);
+            this.pictureBox1.Size = new System.Drawing.Size(102, 109);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // RosedButton
             // 
@@ -79,9 +82,10 @@
             this.RosedButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RosedButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RosedButton.ForeColor = System.Drawing.Color.White;
-            this.RosedButton.Location = new System.Drawing.Point(263, 0);
+            this.RosedButton.Location = new System.Drawing.Point(301, 0);
+            this.RosedButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RosedButton.Name = "RosedButton";
-            this.RosedButton.Size = new System.Drawing.Size(178, 82);
+            this.RosedButton.Size = new System.Drawing.Size(203, 109);
             this.RosedButton.TabIndex = 2;
             this.RosedButton.Text = "Rosé";
             this.RosedButton.UseVisualStyleBackColor = false;
@@ -93,9 +97,10 @@
             this.Red.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Red.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Red.ForeColor = System.Drawing.Color.White;
-            this.Red.Location = new System.Drawing.Point(438, 0);
+            this.Red.Location = new System.Drawing.Point(501, 0);
+            this.Red.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Red.Name = "Red";
-            this.Red.Size = new System.Drawing.Size(178, 82);
+            this.Red.Size = new System.Drawing.Size(203, 109);
             this.Red.TabIndex = 3;
             this.Red.Text = "Rouge";
             this.Red.UseVisualStyleBackColor = false;
@@ -107,9 +112,10 @@
             this.ChampagneButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChampagneButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ChampagneButton.ForeColor = System.Drawing.Color.White;
-            this.ChampagneButton.Location = new System.Drawing.Point(613, 0);
+            this.ChampagneButton.Location = new System.Drawing.Point(701, 0);
+            this.ChampagneButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ChampagneButton.Name = "ChampagneButton";
-            this.ChampagneButton.Size = new System.Drawing.Size(178, 82);
+            this.ChampagneButton.Size = new System.Drawing.Size(203, 109);
             this.ChampagneButton.TabIndex = 4;
             this.ChampagneButton.Text = "Champagne";
             this.ChampagneButton.UseVisualStyleBackColor = false;
@@ -121,9 +127,10 @@
             this.SparklingButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SparklingButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SparklingButton.ForeColor = System.Drawing.Color.White;
-            this.SparklingButton.Location = new System.Drawing.Point(788, 0);
+            this.SparklingButton.Location = new System.Drawing.Point(901, 0);
+            this.SparklingButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SparklingButton.Name = "SparklingButton";
-            this.SparklingButton.Size = new System.Drawing.Size(178, 82);
+            this.SparklingButton.Size = new System.Drawing.Size(203, 109);
             this.SparklingButton.TabIndex = 5;
             this.SparklingButton.Text = "Bio";
             this.SparklingButton.UseVisualStyleBackColor = false;
@@ -133,9 +140,9 @@
             // 
             this.CategoryName.AutoSize = true;
             this.CategoryName.Font = new System.Drawing.Font("Reem Kufi", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CategoryName.Location = new System.Drawing.Point(438, 95);
+            this.CategoryName.Location = new System.Drawing.Point(501, 127);
             this.CategoryName.Name = "CategoryName";
-            this.CategoryName.Size = new System.Drawing.Size(117, 67);
+            this.CategoryName.Size = new System.Drawing.Size(144, 84);
             this.CategoryName.TabIndex = 6;
             this.CategoryName.Text = "Blanc";
             this.CategoryName.Click += new System.EventHandler(this.CategoryName_Click);
@@ -150,52 +157,66 @@
             this.MiseEnBouteille,
             this.Origine,
             this.Quantitee});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 165);
+            this.dataGridView1.Location = new System.Drawing.Point(17, 220);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(935, 365);
+            this.dataGridView1.Size = new System.Drawing.Size(1069, 487);
             this.dataGridView1.TabIndex = 7;
             // 
             // Nom
             // 
             this.Nom.HeaderText = "Nom";
+            this.Nom.MinimumWidth = 6;
             this.Nom.Name = "Nom";
+            this.Nom.Width = 125;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.Width = 125;
+            // 
+            // Reference
+            // 
+            this.Reference.HeaderText = "Réference";
+            this.Reference.MinimumWidth = 6;
+            this.Reference.Name = "Reference";
+            this.Reference.Width = 125;
+            // 
+            // MiseEnBouteille
+            // 
+            this.MiseEnBouteille.HeaderText = "Mise En Bouteille";
+            this.MiseEnBouteille.MinimumWidth = 6;
+            this.MiseEnBouteille.Name = "MiseEnBouteille";
+            this.MiseEnBouteille.Width = 125;
+            // 
+            // Origine
+            // 
+            this.Origine.HeaderText = "Origine";
+            this.Origine.MinimumWidth = 6;
+            this.Origine.Name = "Origine";
+            this.Origine.Width = 125;
+            // 
+            // Quantitee
+            // 
+            this.Quantitee.HeaderText = "Quantitée";
+            this.Quantitee.MinimumWidth = 6;
+            this.Quantitee.Name = "Quantitee";
+            this.Quantitee.Width = 125;
             // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(WineBiblio.Business.Product);
             // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
-            // Reference
-            // 
-            this.Reference.HeaderText = "Réference";
-            this.Reference.Name = "Reference";
-            // 
-            // MiseEnBouteille
-            // 
-            this.MiseEnBouteille.HeaderText = "Mise En Bouteille";
-            this.MiseEnBouteille.Name = "MiseEnBouteille";
-            // 
-            // Origine
-            // 
-            this.Origine.HeaderText = "Origine";
-            this.Origine.Name = "Origine";
-            // 
-            // Quantitee
-            // 
-            this.Quantitee.HeaderText = "Quantitée";
-            this.Quantitee.Name = "Quantitee";
-            // 
             // ProductsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(962, 542);
+            this.ClientSize = new System.Drawing.Size(1099, 723);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.CategoryName);
             this.Controls.Add(this.SparklingButton);
@@ -204,6 +225,7 @@
             this.Controls.Add(this.RosedButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.WhiteButton);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ProductsForm";
             this.Text = "ProductsForm";
             this.Load += new System.EventHandler(this.ProductsForm_Load);

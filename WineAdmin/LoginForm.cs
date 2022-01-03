@@ -57,5 +57,7 @@ namespace WineAdmin
             f.Show();
             f.Location = Location;
         }
+
+       
     }
 }

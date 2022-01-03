@@ -41,7 +41,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WineAdmin.Properties.Resources.WINE;
-            this.pictureBox1.Location = new System.Drawing.Point(43, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(49, 28);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(500, 500);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -54,9 +55,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Reem Kufi", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(12)))), ((int)(((byte)(40)))));
-            this.label1.Location = new System.Drawing.Point(658, 63);
+            this.label1.Location = new System.Drawing.Point(752, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 61);
+            this.label1.Size = new System.Drawing.Size(220, 76);
             this.label1.TabIndex = 2;
             this.label1.Text = "Connexion";
             // 
@@ -66,17 +67,18 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Reem Kufi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(711, 140);
+            this.label2.Location = new System.Drawing.Point(813, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 46);
+            this.label2.Size = new System.Drawing.Size(87, 57);
             this.label2.TabIndex = 3;
             this.label2.Text = "Mail";
             // 
             // mailBox
             // 
-            this.mailBox.Location = new System.Drawing.Point(622, 189);
+            this.mailBox.Location = new System.Drawing.Point(711, 252);
+            this.mailBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mailBox.Name = "mailBox";
-            this.mailBox.Size = new System.Drawing.Size(258, 23);
+            this.mailBox.Size = new System.Drawing.Size(294, 27);
             this.mailBox.TabIndex = 4;
             // 
             // label3
@@ -85,17 +87,18 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Reem Kufi", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(668, 234);
+            this.label3.Location = new System.Drawing.Point(763, 312);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 46);
+            this.label3.Size = new System.Drawing.Size(198, 57);
             this.label3.TabIndex = 5;
             this.label3.Text = "Mot de passe";
             // 
             // passwordBox
             // 
-            this.passwordBox.Location = new System.Drawing.Point(622, 283);
+            this.passwordBox.Location = new System.Drawing.Point(711, 377);
+            this.passwordBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.passwordBox.Name = "passwordBox";
-            this.passwordBox.Size = new System.Drawing.Size(258, 23);
+            this.passwordBox.Size = new System.Drawing.Size(294, 27);
             this.passwordBox.TabIndex = 6;
             // 
             // loginButton
@@ -105,9 +108,10 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Reem Kufi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(672, 351);
+            this.loginButton.Location = new System.Drawing.Point(768, 468);
+            this.loginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(154, 51);
+            this.loginButton.Size = new System.Drawing.Size(176, 68);
             this.loginButton.TabIndex = 7;
             this.loginButton.Text = "Connexion";
             this.loginButton.UseVisualStyleBackColor = false;
@@ -115,10 +119,10 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(962, 542);
+            this.ClientSize = new System.Drawing.Size(1099, 723);
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.label3);
@@ -126,6 +130,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
