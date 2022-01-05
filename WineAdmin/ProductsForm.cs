@@ -74,7 +74,7 @@ namespace WineAdmin
 
             foreach (var product in ContextProvider.ProductService.Get())
             {
-                if(product.id_category+1 == Category.id_category)
+                if(product.id_category == Category.id_category)
                 {
                     dataGridView1.Rows.Add(product.name, product.description, product.reference, product.bottled_year, product.origine, product.quantity_stock);
                 }

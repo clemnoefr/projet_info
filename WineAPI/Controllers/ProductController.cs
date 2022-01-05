@@ -54,7 +54,7 @@ namespace WineAPI.Controllers
                 if (productToUpdate == null)
                     return NotFound();
 
-                return (IActionResult)new ProductService(_ctx).Edit(id, product);
+                return (IActionResult) new ProductService(_ctx).Edit(id, product);
             }
 
             catch (Exception)

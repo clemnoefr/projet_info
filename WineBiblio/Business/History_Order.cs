@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Business
 {
-    public class HistoryOrder
+    public class History_Order
     {
         public int id_history_order { get; set; }
         public string order_file { get; set; }

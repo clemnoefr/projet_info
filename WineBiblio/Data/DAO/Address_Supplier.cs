@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Data.DAO
 {
-    public class AddressSupplier
+    public class Address_Supplier
     {
         [Key] public int id_address_supplier { get; set; }
         public int address_type { get; set; }
