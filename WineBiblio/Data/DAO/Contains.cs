@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Data.DAO
 {
-    public class Contain
+    public class Contains
     {
-        [Key] public int id_contain { get; set; }
-        public int id_order { get; set; }
+        [Key] public int id_order { get; set; }
         [ForeignKey("id_order")]
-        public int id_product { get; set; }
+        [Key] public int id_product { get; set; }
         [ForeignKey("id_product")]
-        public int quantity_sell { get; set; }
-        public DateTime creation_date { get; set; }
-        public DateTime update_date { get; set; }
+        public int quantity { get; set; }
+
     }
 }

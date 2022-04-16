@@ -21,7 +21,11 @@ namespace WineBiblio.Service
         {
             var order = new Data.DAO.Order
             {
-                price_ht = Order.price_ht,
+                status = Order.status,
+                total_ht = Order.total_ht,
+                total_ttc = Order.total_ttc,
+                TVA = Order.TVA,
+                id_invoice = Order.id_invoice,
                 id_address = Order.id_address
 
             };
@@ -33,12 +37,13 @@ namespace WineBiblio.Service
 
         public List<Order> Get() 
         {
-            return (from c in _ctx.Order select new Order { id_order = c.id_order, price_ht = c.price_ht, id_address = c.id_address }).ToList();
+            return (from c in _ctx.Order select new Order { id_order = c.id_order, status = c.status, total_ht = c.total_ht, total_ttc = c.total_ttc, TVA = c.TVA, id_invoice = c.id_invoice, id_address = c.id_address
+            }).ToList();
         }
 
         public Order Get(int id)
         {
-            return (from c in _ctx.Order where c.id_order == id select new Order { id_order = c.id_order, price_ht = c.price_ht, id_address = c.id_address }).FirstOrDefault();
+            return (from c in _ctx.Order where c.id_order == id select new Order { id_order = c.id_order, status = c.status, total_ht = c.total_ht, total_ttc = c.total_ttc, TVA = c.TVA, id_invoice = c.id_invoice, id_address = c.id_address }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -51,7 +56,11 @@ namespace WineBiblio.Service
         public Order Edit(int id, Order order)
         {
             var orderSelected = _ctx.Order.Where(c => c.id_order == id).FirstOrDefault();
-            orderSelected.price_ht = order.price_ht;
+            orderSelected.status = order.status;
+            orderSelected.total_ht = order.total_ht;
+            orderSelected.total_ttc = order.total_ttc;
+            orderSelected.TVA = order.TVA;
+            orderSelected.id_invoice = order.id_invoice;
             orderSelected.id_address = order.id_address;
             _ctx.Order.Update(orderSelected);
             _ctx.SaveChanges();
