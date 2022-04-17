@@ -12,7 +12,7 @@ namespace WineBiblio.Data.DAO
     {
         [Key] public int id_order { get; set; }
         [ForeignKey("id_order")]
-        [Key] public int id_product { get; set; }
+        public int id_product { get; set; }
         [ForeignKey("id_product")]
         public int quantity { get; set; }
 

@@ -11,7 +11,6 @@ using System.Data.Entity.Infrastructure;
 namespace WineAPI.API.Controllers
 {
 
-    [ApiController]
     public class CategoryController : ControllerBase
 
     {
