@@ -21,9 +21,8 @@ namespace WineBiblio.Service
         {
             var inv = new Data.DAO.Invoice
             {
-                TVA = invoice.TVA,
-                price_TTC = invoice.price_TTC,
-                id_address = invoice.id_address,
+                reference = invoice.reference,
+                status = invoice.status,
                 id_order = invoice.id_order
             };
             _ctx.Invoice.Add(inv);
@@ -34,12 +33,12 @@ namespace WineBiblio.Service
 
         public List<Invoice> Get()
         {
-            return (from c in _ctx.Invoice select new Invoice { id_invoice = c.id_invoice, TVA = c.TVA, price_TTC = c.price_TTC, id_order = c.id_order, id_address = c.id_address }).ToList();
+            return (from c in _ctx.Invoice select new Invoice { id_invoice = c.id_invoice, reference = c.reference, status = c.status, id_order = c.id_order }).ToList();
         }
 
         public Invoice Get(int id)
         {
-            return (from c in _ctx.Invoice where c.id_invoice == id select new Invoice { id_invoice = c.id_invoice, TVA = c.TVA, price_TTC = c.price_TTC, id_order = c.id_order, id_address = c.id_address }).FirstOrDefault();
+            return (from c in _ctx.Invoice where c.id_invoice == id select new Invoice { id_invoice = c.id_invoice, reference = c.reference, status = c.status, id_order = c.id_order }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -52,10 +51,9 @@ namespace WineBiblio.Service
         public Invoice Edit(int id, Invoice invoice)
         {
             var invoiceSelected = _ctx.Invoice.Where(c => c.id_invoice == id).FirstOrDefault();
-            invoiceSelected.TVA = invoice.TVA;
-            invoiceSelected.price_TTC = invoice.price_TTC;
-            invoiceSelected.id_invoice = invoice.id_invoice;
-            invoiceSelected.id_address = invoice.id_address;
+            invoiceSelected.reference = invoice.reference;
+            invoiceSelected.status = invoice.status;
+            invoiceSelected.id_order = invoice.id_order;
             _ctx.Invoice.Update(invoiceSelected);
             _ctx.SaveChanges();
             return invoice;

@@ -10,6 +10,9 @@ namespace WineBiblio.Data.DAO
     public class Category
     {
         [Key] public int id_category { get; set; }
-        public string name { get; set; }
+        public string category_name { get; set; }
+
+        public DateTime creation_date { get; set; }
+        public DateTime update_date { get; set; }
     }
 }

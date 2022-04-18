@@ -22,7 +22,6 @@ namespace WineBiblio.Service
             var emp = new Data.DAO.Employee
             {
                 mail = Employee.mail,
-                rank = Employee.rank,
                 last_name = Employee.last_name,
                 first_name = Employee.first_name,
                 password = Employee.password,
@@ -37,12 +36,12 @@ namespace WineBiblio.Service
 
         public List<Employee> Get()
         {
-            return (from c in _ctx.Employee select new Employee { id_employee = c.id_employee, mail = c.mail, rank = c.rank, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).ToList();
+            return (from c in _ctx.Employee select new Employee { id_employee = c.id_employee, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).ToList();
         }
 
         public Employee Get(int id)
         {
-            return (from c in _ctx.Employee where c.id_employee == id select new Employee { id_employee = c.id_employee, mail = c.mail, rank = c.rank, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).FirstOrDefault();
+            return (from c in _ctx.Employee where c.id_employee == id select new Employee { id_employee = c.id_employee, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -56,7 +55,6 @@ namespace WineBiblio.Service
         {
             var employeeSelected = _ctx.Employee.Where(c => c.id_employee == id).FirstOrDefault();
             employeeSelected.mail = employee.mail;
-            employeeSelected.rank = employee.rank;
             employeeSelected.last_name = employee.last_name;
             employeeSelected.first_name = employee.first_name;
             employeeSelected.password = employee.password;
