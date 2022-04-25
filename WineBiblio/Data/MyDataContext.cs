@@ -32,6 +32,7 @@ namespace WineBiblio.Core.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
         public DbSet<Type> Type { get; set; }
+        public DbSet<Family> Family { get; set; }
 
     }
 }
