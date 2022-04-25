@@ -18,8 +18,10 @@ namespace WineBiblio.Business
         public string origine { get; set; }
         public int stock { get; set; }
         public double supplier_price { get; set; }
+        public double price_carton { get; set; }
         public int id_supplier { get; set; }
         public int id_category { get; set; }
+        public int id_family { get; set; }
 
     }
 }
