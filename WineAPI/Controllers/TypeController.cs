@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,44 +19,44 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
         
-        [HttpPost("/addresses/")]
-        public IActionResult Add(Address address)
+        [HttpPost("/types/")]
+        public IActionResult Add(Type type)
         {
-            return Ok(new AddressService(_ctx).Add(address));
+            return Ok(new TypeService(_ctx).Add(type));
         }
 
-        [HttpGet("/addresses/")]
+        [HttpGet("/types/")]
         public IActionResult Get()
         {
-            return Ok(new AddressService(_ctx).Get());
+            return Ok(new TypeService(_ctx).Get());
         }
 
-        [HttpGet("/addresses/{id}")]
+        [HttpGet("/types/{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(new AddressService(_ctx).Get(id));
+            return Ok(new TypeService(_ctx).Get(id));
         }
 
-        [HttpDelete("/addresses/{id}")]
+        [HttpDelete("/types/{id}")]
         public IActionResult Delete(int id)
         {
-            new AddressService(_ctx).Delete(id);
+            new TypeService(_ctx).Delete(id);
             return NoContent();
         }
 
-        [HttpPut("/addresses/{id}")]
-        public IActionResult Update(int id, Address address)
+        [HttpPut("/types/{id}")]
+        public IActionResult Update(int id, Type typ)
         {
             try
             {
-                var addressToUpdate = _ctx.Address.Where(c => c.id_address == id).FirstOrDefault();
-                if (id != addressToUpdate.id_address)
+                var typeToUpdate = _ctx.Type.Where(c => c.id_type == id).FirstOrDefault();
+                if (id != typeToUpdate.id_type)
                     return BadRequest();
 
-                if (addressToUpdate == null)
+                if (typeToUpdate == null)
                     return NotFound();
 
-                return (IActionResult)new AddressService(_ctx).Edit(id, address);
+                return (IActionResult)new TypeService(_ctx).Edit(id, typ);
             }
 
             catch (Exception)
