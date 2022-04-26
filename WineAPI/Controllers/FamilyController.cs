@@ -19,44 +19,44 @@ namespace WineAPI.Controllers
             _ctx = ctx;
         }
         
-        [HttpPost("/addresses/")]
-        public IActionResult Add(Address address)
+        [HttpPost("/families/")]
+        public IActionResult Add(Family family)
         {
-            return Ok(new AddressService(_ctx).Add(address));
+            return Ok(new FamilyService(_ctx).Add(family));
         }
 
-        [HttpGet("/addresses/")]
+        [HttpGet("/families/")]
         public IActionResult Get()
         {
-            return Ok(new AddressService(_ctx).Get());
+            return Ok(new FamilyService(_ctx).Get());
         }
 
-        [HttpGet("/addresses/{id}")]
+        [HttpGet("/families/{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(new AddressService(_ctx).Get(id));
+            return Ok(new FamilyService(_ctx).Get(id));
         }
 
-        [HttpDelete("/addresses/{id}")]
+        [HttpDelete("/families/{id}")]
         public IActionResult Delete(int id)
         {
-            new AddressService(_ctx).Delete(id);
+            new FamilyService(_ctx).Delete(id);
             return NoContent();
         }
 
-        [HttpPut("/addresses/{id}")]
-        public IActionResult Update(int id, Address address)
+        [HttpPut("/families/{id}")]
+        public IActionResult Update(int id, Family family)
         {
             try
             {
-                var addressToUpdate = _ctx.Address.Where(c => c.id_address == id).FirstOrDefault();
-                if (id != addressToUpdate.id_address)
+                var familyToUpdate = _ctx.Address.Where(c => c.id_family == id).FirstOrDefault();
+                if (id != familyToUpdate.id_family)
                     return BadRequest();
 
-                if (addressToUpdate == null)
+                if (familyToUpdate == null)
                     return NotFound();
 
-                return (IActionResult)new AddressService(_ctx).Edit(id, address);
+                return (IActionResult)new FamilyService(_ctx).Edit(id, family);
             }
 
             catch (Exception)
