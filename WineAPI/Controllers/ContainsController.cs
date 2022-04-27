@@ -43,7 +43,7 @@ namespace WineAPI.Controllers
         {
             try
             {
-                var containToUpdate = _ctx.Contain.Where(c => c.id_order == id).FirstOrDefault();
+                var containToUpdate = _ctx.Contains.Where(c => c.id_order == id).FirstOrDefault();
                 if (id != containToUpdate.id_order)
                     return BadRequest();
 

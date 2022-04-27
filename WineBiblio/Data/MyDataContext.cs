@@ -22,17 +22,17 @@ namespace WineBiblio.Core.Data
         Note that here, our DbSet <TEntity> properties have a public setter 
         = so  they are automatically initialized when the instance of the derived context is created.
         */
-        public DbSet<Address> Address { get; set; }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Contains> Contain { get; set; }
-        public DbSet<Customer> Customer { get; set; }
-        public DbSet<Employee> Employee { get; set; }
-        public DbSet<Invoice> Invoice { get; set; }
-        public DbSet<Order> Order { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Supplier> Supplier { get; set; }
-        public DbSet<Type> Type { get; set; }
-        public DbSet<Family> Family { get; set; }
+        public DbSet<Addresses> Addresses { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Contains> Contains { get; set; }
+        public DbSet<Customers> Customers { get; set; }
+        public DbSet<Employees> Employees { get; set; }
+        public DbSet<Invoices> Invoices { get; set; }
+        public DbSet<Orders> Orders { get; set; }
+        public DbSet<Products> Products { get; set; }
+        public DbSet<Suppliers> Suppliers { get; set; }
+        public DbSet<Types> Types { get; set; }
+        public DbSet<Families> Families { get; set; }
 
     }
 }
