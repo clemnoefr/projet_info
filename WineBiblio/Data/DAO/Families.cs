@@ -12,7 +12,5 @@ namespace WineBiblio.Data.DAO
     {
         [Key] public int id_family { get; set; }
         public string family_name { get; set; }
-        public DateTime creation_date { get; set; }
-        public DateTime update_date { get; set; }
     }
 }
