@@ -17,38 +17,38 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public Contains Add(Contains contain)
+        public Contains Add(Contains contains)
         {
             var cont = new Data.DAO.Contains
             {
-                quantity = contain.quantity,
-                id_order = contain.id_order,
-                id_product = contain.id_product,
+                quantity = contains.quantity,
+                id_order = contains.id_order,
+                id_product = contains.id_product,
             };
-            _ctx.Contain.Add(cont);
+            _ctx.Contains.Add(cont);
             _ctx.SaveChanges();
-            contain.id_order = cont.id_order;
-            return contain;
+            contains.id_order = cont.id_order;
+            return contains;
         }
 
         public List<Contains> Get()
         {
-            return (from c in _ctx.Contain select new Contains { quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
+            return (from c in _ctx.Contains select new Contains { quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
         }
 
         public List<Contains> Get(int id)
         {
-            return (from c in _ctx.Contain where c.id_order == id select new Contains { quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
+            return (from c in _ctx.Contains where c.id_order == id select new Contains { quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
         }
 
-        public Contains Edit(int id, Contains contain)
+        public Contains Edit(int id, Contains contains)
         {
-            var containSelected = _ctx.Contain.Where(c => c.id_order == id).FirstOrDefault();
-            containSelected.quantity = contain.quantity;
-            containSelected.id_product = contain.id_product;
-            _ctx.Contain.Update(containSelected);
+            var containSelected = _ctx.Contains.Where(c => c.id_order == id).FirstOrDefault();
+            containSelected.quantity = contains.quantity;
+            containSelected.id_product = contains.id_product;
+            _ctx.Contains.Update(containSelected);
             _ctx.SaveChanges();
-            return contain;
+            return contains;
         }
     }
 }
