@@ -10,7 +10,6 @@ namespace WineBiblio.Business
     {
         public int id_employee { get; set; }
         public string mail { get; set; }
-        public int rank { get; set; }
         public string last_name { get; set; }
         public string first_name { get; set; }
         public string password { get; set; }

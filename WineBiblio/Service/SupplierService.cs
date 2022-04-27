@@ -21,23 +21,26 @@ namespace WineBiblio.Service
         {
             var supp = new Data.DAO.Supplier
             {
-                Name = supplier.Name
-                /*ici voir comment add l'adresse fournisseur*/
+                name = supplier.name,
+                phone = supplier.phone,
+                supplier_code = supplier.supplier_code,
+                id_address = supplier.id_address,
             };
             _ctx.Supplier.Add(supp);
             _ctx.SaveChanges();
-            supplier.Name = supp.Name;
+            supplier.id_supplier = supp.id_supplier;
             return supplier;
         }
 
         public List<Supplier> Get()
         {
-            return (from c in _ctx.Supplier select new Supplier { id_supplier = c.id_supplier, Name = c.Name }).ToList();
+            return (from c in _ctx.Supplier select new Supplier { id_supplier = c.id_supplier, name = c.name, phone = c.phone, supplier_code = c.supplier_code, id_address = c.id_address
+            }).ToList();
         }
 
         public Supplier Get(int id)
         {
-            return (from c in _ctx.Supplier where c.id_supplier == id select new Supplier { id_supplier = c.id_supplier, Name = c.Name }).FirstOrDefault();
+            return (from c in _ctx.Supplier where c.id_supplier == id select new Supplier { id_supplier = c.id_supplier, name = c.name, phone = c.phone, supplier_code = c.supplier_code, id_address = c.id_address }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -50,8 +53,10 @@ namespace WineBiblio.Service
         public Supplier Edit(int id, Supplier supplier)
         {
             var supplierSelected = _ctx.Supplier.Where(c => c.id_supplier == id).FirstOrDefault();
-            supplierSelected.Name = supplier.Name;
-            /*ici voir comment edit l'adresse fournisseur*/
+            supplierSelected.name = supplier.name;
+            supplierSelected.phone = supplier.phone;
+            supplierSelected.supplier_code = supplier.supplier_code;
+            supplierSelected.id_address = supplier.id_address;
             _ctx.Supplier.Update(supplierSelected);
             _ctx.SaveChanges();
             return supplier;

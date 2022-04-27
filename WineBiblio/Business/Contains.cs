@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace WineBiblio.Business
 {
-    public class History_Order
+    public class Contains
     {
-        public int id_history_order { get; set; }
-        public string order_file { get; set; }
         public int id_order { get; set; }
+        public int id_product { get; set; }
+        public int quantity { get; set; }
+
     }
 }

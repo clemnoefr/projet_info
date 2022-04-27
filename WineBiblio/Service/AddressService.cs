@@ -20,21 +20,22 @@ namespace WineBiblio.Service
 
         public List<Address> Get()
         {
-            return (from c in _ctx.Address select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address, id_customer = c.id_customer }).ToList();
+            return (from c in _ctx.Address select new Address { id_address = c.id_address, id_type = c.id_type,address = c.address, id_customer = c.id_customer, id_supplier = c.id_supplier }).ToList();
         }
 
         public Address Get(int id)
         {
-            return (from c in _ctx.Address where c.id_address == id select new Address { id_address = c.id_address, address_type = c.address_type, address = c.address, id_customer = c.id_customer }).FirstOrDefault();
+            return (from c in _ctx.Address where c.id_address == id select new Address { id_address = c.id_address, id_type = c.id_type, address = c.address, id_customer = c.id_customer, id_supplier = c.id_supplier }).FirstOrDefault();
         }
 
         public Address Add(Address address)
         {
             var addr = new Data.DAO.Address
             {
-                address_type = address.address_type,
-                address = address.address,
-               id_customer = address.id_customer
+               address = address.address,
+               id_customer = address.id_customer,
+               id_type = address.id_type,
+               id_supplier = address.id_supplier,
 
             };
             _ctx.Address.Add(addr);
@@ -54,8 +55,10 @@ namespace WineBiblio.Service
         public Address Edit(int id, Address address)
         {
             var addressSelected = _ctx.Address.Where(a => a.id_address == id).FirstOrDefault();
-            addressSelected.address_type = address.address_type;
             addressSelected.id_customer = address.id_customer;
+            addressSelected.id_type = address.id_type;
+            addressSelected.address = address.address;
+            addressSelected.id_supplier = address.id_supplier;
             _ctx.Address.Update(addressSelected);
             _ctx.SaveChanges();
             return address;

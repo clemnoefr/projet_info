@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WineAPI.Controllers
 {
-    [ApiController]
     public class AddressController : ControllerBase
     {
         private readonly MyDataContext _ctx;

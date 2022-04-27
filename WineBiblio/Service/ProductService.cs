@@ -21,15 +21,19 @@ namespace WineBiblio.Service
         {
             var Prod = new Data.DAO.Product
             {
-                name = Product.name,
+                product_name = Product.product_name,
                 description = Product.description,
+                price_ht = Product.price_ht,
                 reference = Product.reference,
                 bottled_year = Product.bottled_year,
                 picture = Product.picture,
                 origine = Product.origine,
-                quantity_stock = Product.quantity_stock,
-                id_address_supplier = Product.id_address_supplier,
-                id_category = Product.id_category
+                stock = Product.stock,
+                supplier_price = Product.supplier_price,
+                price_carton = Product.price_carton,
+                id_supplier = Product.id_supplier,
+                id_category = Product.id_category,
+                id_family = Product.id_family
                 
             };
             _ctx.Product.Add(Prod);
@@ -40,12 +44,12 @@ namespace WineBiblio.Service
 
         public List<Product> Get()
         {
-            return (from c in _ctx.Product select new Product { id_product = c.id_product, name = c.name, description = c.description, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, quantity_stock = c.quantity_stock, id_address_supplier = c.id_address_supplier, id_category = c.id_category }).ToList();
+            return (from c in _ctx.Product select new Product { id_product = c.id_product, product_name = c.product_name, description = c.description, price_ht=c.price_ht, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, stock = c.stock,supplier_price = c.supplier_price, price_carton = c.price_carton, id_supplier = c.id_supplier, id_category = c.id_category, id_family = c.id_family }).ToList();
         }
 
         public Product Get(int id)
         {
-            return (from c in _ctx.Product where c.id_product == id select new Product { id_product = c.id_product, name = c.name, description = c.description, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, quantity_stock = c.quantity_stock, id_address_supplier = c.id_address_supplier, id_category = c.id_category }).FirstOrDefault();
+            return (from c in _ctx.Product where c.id_product == id select new Product { id_product = c.id_product, product_name = c.product_name, description = c.description, price_ht = c.price_ht, reference = c.reference, bottled_year = c.bottled_year, picture = c.picture, origine = c.origine, stock = c.stock, supplier_price = c.supplier_price, price_carton = c.price_carton, id_supplier = c.id_supplier, id_category = c.id_category, id_family = c.id_family }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -58,15 +62,19 @@ namespace WineBiblio.Service
         public Product Edit(int id, Product product)
         {
             var productSelected = _ctx.Product.Where(c => c.id_product == id).FirstOrDefault();
-            productSelected.name = product.name;
+            productSelected.product_name = product.product_name;
             productSelected.description = product.description;
+            productSelected.price_ht = product.price_ht;
             productSelected.reference = product.reference;
             productSelected.bottled_year = product.bottled_year;
             productSelected.picture = product.picture;
             productSelected.origine = product.origine;
-            productSelected.quantity_stock = product.quantity_stock;
-            productSelected.id_address_supplier = product.id_address_supplier;
+            productSelected.stock = product.stock;
+            productSelected.supplier_price = product.supplier_price;
+            productSelected.price_carton = product.price_carton;
+            productSelected.id_supplier = product.id_supplier;
             productSelected.id_category = product.id_category;
+            productSelected.id_product = product.id_family;
             _ctx.Product.Update(productSelected);
             _ctx.SaveChanges();
             return product;
