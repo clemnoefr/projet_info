@@ -12,6 +12,5 @@ namespace WineBiblio.Business
         public string name { get; set; }
         public int phone { get; set; }
         public string supplier_code { get; set; }
-        public int id_address { get; set; }
     }
 }

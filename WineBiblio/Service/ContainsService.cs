@@ -27,25 +27,26 @@ namespace WineBiblio.Service
             };
             _ctx.Contains.Add(cont);
             _ctx.SaveChanges();
-            contains.id_order = cont.id_order;
+            contains.id_contains = cont.id_contains;
             return contains;
         }
 
         public List<Contains> Get()
         {
-            return (from c in _ctx.Contains select new Contains { quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
+            return (from c in _ctx.Contains select new Contains { id_contains = c.id_contains, quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
         }
 
         public List<Contains> Get(int id)
         {
-            return (from c in _ctx.Contains where c.id_order == id select new Contains { quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
+            return (from c in _ctx.Contains where c.id_contains == id select new Contains { id_contains = c.id_contains, quantity = c.quantity, id_order = c.id_order, id_product = c.id_product }).ToList();
         }
 
         public Contains Edit(int id, Contains contains)
         {
-            var containSelected = _ctx.Contains.Where(c => c.id_order == id).FirstOrDefault();
+            var containSelected = _ctx.Contains.Where(c => c.id_contains == id).FirstOrDefault();
             containSelected.quantity = contains.quantity;
             containSelected.id_product = contains.id_product;
+            containSelected.id_order = contains.id_order;
             _ctx.Contains.Update(containSelected);
             _ctx.SaveChanges();
             return contains;

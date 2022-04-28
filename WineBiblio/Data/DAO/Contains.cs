@@ -10,7 +10,8 @@ namespace WineBiblio.Data.DAO
 {
     public class Contains
     {
-        [Key] public int id_order { get; set; }
+        [Key] public int id_contains { get; set; }
+        public int id_order { get; set; }
         [ForeignKey("id_order")]
         public int id_product { get; set; }
         [ForeignKey("id_product")]
