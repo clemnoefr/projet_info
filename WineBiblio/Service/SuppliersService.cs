@@ -23,8 +23,7 @@ namespace WineBiblio.Service
             {
                 name = suppliers.name,
                 phone = suppliers.phone,
-                supplier_code = suppliers.supplier_code,
-                id_address = suppliers.id_address,
+                supplier_code = suppliers.supplier_code
             };
             _ctx.Suppliers.Add(supp);
             _ctx.SaveChanges();
@@ -34,13 +33,12 @@ namespace WineBiblio.Service
 
         public List<Suppliers> Get()
         {
-            return (from c in _ctx.Suppliers select new Suppliers { id_supplier = c.id_supplier, name = c.name, phone = c.phone, supplier_code = c.supplier_code, id_address = c.id_address
-            }).ToList();
+            return (from c in _ctx.Suppliers select new Suppliers { id_supplier = c.id_supplier, name = c.name, phone = c.phone, supplier_code = c.supplier_code}).ToList();
         }
 
         public Suppliers Get(int id)
         {
-            return (from c in _ctx.Suppliers where c.id_supplier == id select new Suppliers { id_supplier = c.id_supplier, name = c.name, phone = c.phone, supplier_code = c.supplier_code, id_address = c.id_address }).FirstOrDefault();
+            return (from c in _ctx.Suppliers where c.id_supplier == id select new Suppliers { id_supplier = c.id_supplier, name = c.name, phone = c.phone, supplier_code = c.supplier_code }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -56,7 +54,6 @@ namespace WineBiblio.Service
             supplierSelected.name = suppliers.name;
             supplierSelected.phone = suppliers.phone;
             supplierSelected.supplier_code = suppliers.supplier_code;
-            supplierSelected.id_address = suppliers.id_address;
             _ctx.Suppliers.Update(supplierSelected);
             _ctx.SaveChanges();
             return suppliers;
