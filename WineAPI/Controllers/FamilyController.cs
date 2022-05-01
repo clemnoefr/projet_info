@@ -49,7 +49,7 @@ namespace WineAPI.Controllers
         {
             try
             {
-                var familyToUpdate = _ctx.Address.Where(c => c.id_family == id).FirstOrDefault();
+                var familyToUpdate = _ctx.Family.Where(c => c.id_family == id).FirstOrDefault();
                 if (id != familyToUpdate.id_family)
                     return BadRequest();
 

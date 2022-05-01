@@ -14,13 +14,9 @@ namespace WineAdmin.Server
         public static MyDataContext DataContext { get; private set; }
 
         public static AddressService AddressService { get; private set; }
-        public static AddressSupplierService AddressSupplierService { get; private set; }
         public static CategoryService CategoryService { get; private set; }
-        public static ContainService ContainService { get; private set; }
         public static CustomerService CustomerService { get; private set; }
         public static EmployeeService EmployeeService { get; private set; }
-        public static HistoryInvoiceService HistoryInvoiceService { get; private set; }
-        public static HistoryOrderService HistoryOrderService { get; private set; }
         public static InvoiceService InvoiceService { get; private set; }
         public static OrderService OrderService { get; private set; }
         public static ProductService ProductService { get; private set; }
@@ -34,13 +30,9 @@ namespace WineAdmin.Server
             DataContext = new MyDataContext(builder.Options);
             Console.WriteLine("[+] Connected to database !");
             AddressService = new AddressService(DataContext);
-            AddressSupplierService = new AddressSupplierService(DataContext);
             CategoryService = new CategoryService(DataContext);
-            ContainService = new ContainService(DataContext);
             CustomerService = new CustomerService(DataContext);
             EmployeeService = new EmployeeService(DataContext);
-            HistoryInvoiceService = new HistoryInvoiceService(DataContext);
-            HistoryOrderService = new HistoryOrderService(DataContext);
             InvoiceService = new InvoiceService(DataContext);
             OrderService = new OrderService(DataContext);
             ProductService = new ProductService(DataContext);

@@ -20,7 +20,7 @@ namespace WineAPI.Controllers
         }
         
         [HttpPost("/types/")]
-        public IActionResult Add(Type type)
+        public IActionResult Add(WineBiblio.Business.Type type)
         {
             return Ok(new TypeService(_ctx).Add(type));
         }
@@ -45,7 +45,7 @@ namespace WineAPI.Controllers
         }
 
         [HttpPut("/types/{id}")]
-        public IActionResult Update(int id, Type typ)
+        public IActionResult Update(int id, WineBiblio.Business.Type typ)
         {
             try
             {

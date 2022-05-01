@@ -23,6 +23,13 @@ namespace WineAPI.Controllers
             return Ok(new EmployeeService(_ctx).Add(employee));
         }
 
+        [HttpPost("/employees/login")]
+        public IActionResult Login(String mail, String hashed_password)
+        {
+            var token = new EmployeeService(_ctx).Login(mail, hashed_password);
+            return token == null ? Unauthorized() : Ok(token);
+        }
+
         [HttpGet("/employees/")]
         public IActionResult Get()
         {
@@ -32,6 +39,22 @@ namespace WineAPI.Controllers
         [HttpGet("/employees/{id}")]
         public IActionResult Get(int id)
         {
+            return Ok(new EmployeeService(_ctx).Get(id));
+        }
+        
+        
+        [HttpGet("/employees/p/{id}")]
+        public IActionResult Get_Protected(int id)
+        {
+            if (Request.Headers == null)
+                return Forbid();
+            var login_cookie = this.HttpContext.Request.Headers["Authorization"];
+
+            var employee = _ctx.Employee.Where(c => c.login_cookie == login_cookie).FirstOrDefault();
+            if (employee == null)
+                return Unauthorized();
+
+            Console.WriteLine("[+] Employee " + employee.first_name + " is accessing protected GetById method!");
             return Ok(new EmployeeService(_ctx).Get(id));
         }
 

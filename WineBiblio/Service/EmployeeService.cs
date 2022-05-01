@@ -33,7 +33,28 @@ namespace WineBiblio.Service
             Employee.id_employee = emp.id_employee;
             return Employee;
         }
+        public Employee Login(String mail, String password)
+        {
+            if (mail == null || password == null)
+                return null;
+            var found = _ctx.Employee.Where(c => c.mail == mail).FirstOrDefault();
 
+            if (found == null)
+                return null;
+
+            if (found.password != password)
+                return null;
+            //select all char to be used in random 
+            const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+            //Generate random token
+            found.login_cookie = new string(Enumerable.Repeat(chars, 32).Select(s => s[new Random().Next(s.Length)]).ToArray());
+            //Update
+            _ctx.Employee.Update(found);
+            //Push update
+            _ctx.SaveChanges();
+            //Return FULL client including the login token.
+            return (from c in _ctx.Employee where c.id_employee == found.id_employee select new Employee { id_employee = c.id_employee, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone, login_cookie = c.login_cookie }).FirstOrDefault();
+        }
         public List<Employee> Get()
         {
             return (from c in _ctx.Employee select new Employee { id_employee = c.id_employee, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).ToList();
