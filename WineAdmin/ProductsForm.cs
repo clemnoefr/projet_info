@@ -62,13 +62,13 @@ namespace WineAdmin
         {
             foreach(var category in ContextProvider.CategoryService.Get())
             {
-                if (category.name.Equals(name))
+                if (category.category_name.Equals(name))
                 {
                     Category = category;
                     break;
                 }
             }
-            CategoryName.Text = Category.name;
+            CategoryName.Text = Category.category_name;
 
             dataGridView1.Rows.Clear();
 
@@ -76,7 +76,7 @@ namespace WineAdmin
             {
                 if(product.id_category == Category.id_category)
                 {
-                    dataGridView1.Rows.Add(product.name, product.description, product.reference, product.bottled_year, product.origine, product.quantity_stock);
+                    dataGridView1.Rows.Add(product.product_name, product.description, product.reference, product.bottled_year, product.origine, product.stock);
                 }
             }
         }
