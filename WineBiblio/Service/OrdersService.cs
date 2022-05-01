@@ -26,7 +26,7 @@ namespace WineBiblio.Service
                 total_ht = Orders.total_ht,
                 total_ttc = Orders.total_ttc,
                 TVA = Orders.TVA
-                id_customer = order.id_customer,
+                id_customer = Orders.id_customer,
 
             };
             _ctx.Orders.Add(order);
