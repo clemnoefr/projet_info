@@ -26,6 +26,7 @@ namespace WineBiblio.Service
                 first_name = Customers.first_name,
                 password = Customers.password,
                 phone = Customers.phone,
+                address = Customers.address
 
             };
             _ctx.Customers.Add(Cus);
@@ -36,12 +37,12 @@ namespace WineBiblio.Service
 
         public List<Customers> Get()
         {
-            return (from c in _ctx.Customers select new Customers { id_customer = c.id_customer, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).ToList();
+            return (from c in _ctx.Customers select new Customers { id_customer = c.id_customer, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone, address = c.address }).ToList();
         }
 
         public Customers Get(int id)
         {
-            return (from c in _ctx.Customers where c.id_customer == id select new Customers { id_customer = c.id_customer, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone }).FirstOrDefault();
+            return (from c in _ctx.Customers where c.id_customer == id select new Customers { id_customer = c.id_customer, mail = c.mail, last_name = c.last_name, first_name = c.first_name, password = c.password, phone = c.phone, address = c.address }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -59,6 +60,7 @@ namespace WineBiblio.Service
             customerSelected.first_name = customers.first_name;
             customerSelected.password = customers.password;
             customerSelected.phone = customers.phone;
+            customerSelected.address = customers.address;
             _ctx.Customers.Update(customerSelected);
             _ctx.SaveChanges();
             return customers;

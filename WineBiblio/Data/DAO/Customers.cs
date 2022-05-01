@@ -15,6 +15,7 @@ namespace WineBiblio.Data.DAO
         public string first_name { get; set; }
         public string password { get; set; }
         public int phone { get; set; }
+        public string address { get; set; }
         public DateTime creation_date { get; set; }
         public DateTime update_date { get; set; }
     }

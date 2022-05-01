@@ -12,7 +12,6 @@ namespace WineBiblio.Business
         public int status { get; set; }
         public double total_ht { get; set; }
         public double total_ttc { get; set; }
-        public double TVA { get; set; }
-        public int id_address { get; set; }
+        public double TVA { get; set;}
     }
 }
