@@ -23,6 +23,29 @@ namespace WineAPI.Controllers
             return Ok(new CustomersService(_ctx).Add(customer));
         }
 
+        [HttpPost("/customers/login")]
+        public IActionResult Login(String mail, String password)
+        {
+            var token = new CustomersService(_ctx).Login(mail, password);
+            return token == null ? Unauthorized() : Ok(token);
+        }
+
+        // Sample (Get customer info from token)
+        //[HttpGet("/customers/p/{id}")]
+        //public IActionResult Get_Protected(int id)
+        //{
+        //    if (Request.Headers == null)
+        //        return Forbid();
+        //    var login_cookie = this.HttpContext.Request.Headers["Authorization"];
+
+        //    var customer = _ctx.Customers.Where(c => c.login_cookie == login_cookie).FirstOrDefault();
+        //    if (customer == null)
+        //        return Unauthorized();
+
+        //    Console.WriteLine("[+] Customer " + customer.first_name + " is accessing protected GetById method!");
+        //    return Ok(new CustomersService(_ctx).Get(id));
+        //}
+
         [HttpGet("/customers/")]
         public IActionResult Get()
         {

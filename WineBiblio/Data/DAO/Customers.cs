@@ -18,5 +18,6 @@ namespace WineBiblio.Data.DAO
         public string address { get; set; }
         public DateTime creation_date { get; set; }
         public DateTime update_date { get; set; }
+        public string login_cookie { get; set; }
     }
 }
