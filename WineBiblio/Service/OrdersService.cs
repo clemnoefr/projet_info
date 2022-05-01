@@ -21,10 +21,12 @@ namespace WineBiblio.Service
         {
             var order = new Data.DAO.Orders
             {
+                
                 status = Orders.status,
                 total_ht = Orders.total_ht,
                 total_ttc = Orders.total_ttc,
                 TVA = Orders.TVA
+                id_customer = order.id_customer,
 
             };
             _ctx.Orders.Add(order);
@@ -35,13 +37,13 @@ namespace WineBiblio.Service
 
         public List<Orders> Get() 
         {
-            return (from c in _ctx.Orders select new Orders { id_order = c.id_order, status = c.status, total_ht = c.total_ht, total_ttc = c.total_ttc, TVA = c.TVA
+            return (from c in _ctx.Orders select new Orders { id_order = c.id_order, status = c.status, total_ht = c.total_ht, total_ttc = c.total_ttc, TVA = c.TVA, id_customer = c.id_customer
             }).ToList();
         }
 
         public Orders Get(int id)
         {
-            return (from c in _ctx.Orders where c.id_order == id select new Orders { id_order = c.id_order, status = c.status, total_ht = c.total_ht, total_ttc = c.total_ttc, TVA = c.TVA }).FirstOrDefault();
+            return (from c in _ctx.Orders where c.id_order == id select new Orders { id_order = c.id_order, status = c.status, total_ht = c.total_ht, total_ttc = c.total_ttc, TVA = c.TVA, id_customer = c.id_customer }).FirstOrDefault();
         }
 
         public void Delete(int id)
@@ -58,6 +60,7 @@ namespace WineBiblio.Service
             orderSelected.total_ht = order.total_ht;
             orderSelected.total_ttc = order.total_ttc;
             orderSelected.TVA = order.TVA;
+            orderSelected.id_customer = order.id_customer;
             _ctx.Orders.Update(orderSelected);
             _ctx.SaveChanges();
             return order;

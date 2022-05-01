@@ -15,7 +15,9 @@ namespace WineBiblio.Data.DAO
         public double total_ht { get; set; }
         public double total_ttc { get; set; }
         public double TVA { get; set; }
+        public int id_customer { get; set; }
         public DateTime creation_date { get; set; }
         public DateTime update_date { get; set; }
+        
     }
 }
