@@ -17,7 +17,7 @@ namespace WineBiblio.Service
             _ctx = ctx;
         }
 
-        public Customers Add(Business.Customers Customers)
+        public Customers Add(Customers Customers)
         {
             var Cus = new Data.DAO.Customers
             {
