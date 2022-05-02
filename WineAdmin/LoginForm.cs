@@ -30,7 +30,7 @@ namespace WineAdmin
                     string mail = mailBox.Text;
                     string password = passwordBox.Text;
 
-                    foreach(var employee in ContextProvider.EmployeeService.Get().ToList<Employee>()){
+                    foreach(var employee in ContextProvider.EmployeeService.Get().ToList<Employees>()){
                         if(employee.mail == mail)
                         {
                             if(employee.password == password)
