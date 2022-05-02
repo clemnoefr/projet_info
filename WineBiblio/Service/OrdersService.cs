@@ -25,7 +25,7 @@ namespace WineBiblio.Service
                 status = Orders.status,
                 total_ht = Orders.total_ht,
                 total_ttc = Orders.total_ttc,
-                TVA = Orders.TVA
+                TVA = Orders.TVA,
                 id_customer = Orders.id_customer,
 
             };
